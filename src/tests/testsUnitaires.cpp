@@ -1,5 +1,5 @@
 /**
- * \file testUnitaires.cpp
+ * \file testsUnitaires.cpp
  * \brief Corps des fonctions utilisées pour les tests unitaires du projet de système embarqué.
  * \author Nicolas Erbetti & Hugo Destannes Froment
  * \version 0.1

@@ -12,15 +12,12 @@
  */
 
 #include "algorithmes.h"
+#include "tests/testCPU.h"
 #include "tests/testsUnitaires.h"
 #include "shared/data.h"
 #include "shared/SortEngine.h"
 #include <string.h>
 #include <stdio.h>
-
-unsigned short quick[uiSensorSize];
-unsigned short heap[uiSensorSize];
-
 
 int main() {
 /**
@@ -47,31 +44,9 @@ int main() {
 	///////////////////////////////////////////////////////////////////////////////
 
 	//TESTS CPU////////////////////////////////////////////////////////////////////////
-	/*//Ne pas oublier de supprimer l'objet à la fin pour éviter les fuites mémoires
-	SortEngine engine;
-	test("start", 0);
+	if (testTriCPU()) printf("Erreur détectée durant les tests CPU des fonctions de tri.\n");
 
-
-	//Tests cpu des algorithmes de traitement
-
-	//Tests cpu des algo de tri
-
-	//Copie des données à trier
-	for (int i = 0; i<(int)uiSensorSize; i++){
-		int temp = p_usSrcData[0][0][i];
-		quick[i] = temp;
-		heap[i] = temp;
-	}
-
-	//Tests de tris
-	engine.setSortType(SortEngine::QUICK);
-	engine.sort(quick, uiSensorSize);
-	testTri("quicksort", 1, 0);
-	engine.setSortType(SortEngine::HEAP);
-	engine.sort(heap, uiSensorSize);
-	testTri("heapsort", 1, 1);
-
-	test("end", 2);*/
+	if (testAlgoCPU()) printf("Erreur détectée durant les tests CPU des fonctions de traitement.\n");
 	/////////////////////////////////////////////////////////////////////////////////
 
 	return 0;

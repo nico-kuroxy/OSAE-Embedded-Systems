@@ -92,6 +92,7 @@ void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samp
 	double *Vref = (double*) malloc(len_pixels* sizeof(double));
 	double *Vsoustrait = (double*) malloc(len_pixels * sizeof(double));
 	SortEngine *engine = new SortEngine();
+	engine->setSortType(SortEngine::QUICK);
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	//INITIALISATION////////////////////////////////////////////////////////////////////////

@@ -19,4 +19,8 @@ int test(const char *testName, int testId);
 
 int testTri(const char *testName, int testId, int typeTri);
 
+int testTriCPU();
+
+int testAlgoCPU();
+
 #endif /* TEST_CPU_H_ */

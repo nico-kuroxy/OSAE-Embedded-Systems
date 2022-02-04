@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "Projet de système embarqué", "index.html", [
     [ "Page principale", "index.html", null ],
+    [ "OSAE-Embedded-Systems", "md__home_nicolas_eclipse-workspace-cpu__projet__r_e_a_d_m_e.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

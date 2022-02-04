@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projet de système embarqué: /home/nicolas/eclipse-workspace-cpu/Projet/src/main.cpp File Reference</title>
+<title>Projet de système embarqué: /home/nicolas/eclipse-workspace-cpu/Projet/src/tests/testCPU.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('main_8cpp.html','');});
+$(document).ready(function(){initNavTree('test_c_p_u_8cpp.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -82,36 +82,58 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">main.cpp File Reference</div>  </div>
+<div class="title">testCPU.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Programme de tests du projet de système embarqué.  
+<p>Corps des fonctions utilisées pour déterminer le budget CPU du projet de système embarqué.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="algorithmes_8h_source.html">algorithmes.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="test_c_p_u_8h_source.html">tests/testCPU.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tests_unitaires_8h_source.html">tests/testsUnitaires.h</a>&quot;</code><br />
-<code>#include &quot;shared/data.h&quot;</code><br />
-<code>#include &quot;shared/SortEngine.h&quot;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="test_c_p_u_8h_source.html">testCPU.h</a>&quot;</code><br />
 </div>
-<p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="test_c_p_u_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa78ff59f0ed7efc70effd6ac4d15d854"><td class="memItemLeft" align="right" valign="top"><a id="aa78ff59f0ed7efc70effd6ac4d15d854"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>test</b> (const char *testName, int testId)</td></tr>
+<tr class="separator:aa78ff59f0ed7efc70effd6ac4d15d854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd9f1929d3720d52a8649e68201d5138"><td class="memItemLeft" align="right" valign="top"><a id="acd9f1929d3720d52a8649e68201d5138"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>testTri</b> (const char *testName, int testId, int typeTri)</td></tr>
+<tr class="separator:acd9f1929d3720d52a8649e68201d5138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a352490a9696826ad1d89e1ea9552674f"><td class="memItemLeft" align="right" valign="top"><a id="a352490a9696826ad1d89e1ea9552674f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>testTriCPU</b> ()</td></tr>
+<tr class="separator:a352490a9696826ad1d89e1ea9552674f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6dce0d0de0d798c82301079e8e18fd2"><td class="memItemLeft" align="right" valign="top"><a id="af6dce0d0de0d798c82301079e8e18fd2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>testAlgoCPU</b> ()</td></tr>
+<tr class="separator:af6dce0d0de0d798c82301079e8e18fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8ca054e842b84e707bedef9ca3312dd7"><td class="memItemLeft" align="right" valign="top"><a id="a8ca054e842b84e707bedef9ca3312dd7"></a>
+unsigned short&#160;</td><td class="memItemRight" valign="bottom"><b>quick</b> [uiSensorSize]</td></tr>
+<tr class="separator:a8ca054e842b84e707bedef9ca3312dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6ff88bfd2ac68ae214fd4635d870dc"><td class="memItemLeft" align="right" valign="top"><a id="a2f6ff88bfd2ac68ae214fd4635d870dc"></a>
+unsigned short&#160;</td><td class="memItemRight" valign="bottom"><b>heap</b> [uiSensorSize]</td></tr>
+<tr class="separator:a2f6ff88bfd2ac68ae214fd4635d870dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Programme de tests du projet de système embarqué. </p>
+<div class="textblock"><p>Corps des fonctions utilisées pour déterminer le budget CPU du projet de système embarqué. </p>
 <dl class="section author"><dt>Author</dt><dd>Nicolas Erbetti &amp; Hugo Destannes Froment </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>1 février 2022</dd></dl>
-<p>Programme de test pour les différents algorithmes développés dans le cadre du projet d'informatique embarquée du Master 2 OSAE. On testera nos propres fonctions, les algorithmes de tri et leurs intégrations à l'algorithme de traitement global. </p>
+<dl class="section date"><dt>Date</dt><dd>2 février 2022</dd></dl>
+<p>Corps des fonctions de tests qui permettent d'évaluer la sollicitation du CPU par nos algorithmes. </p>
 
-<p class="definition">Definition in file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition in file <a class="el" href="test_c_p_u_8cpp_source.html">testCPU.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d93a1d4020dea85bb71b237545b5e722.html">tests</a></li><li class="navelem"><a class="el" href="test_c_p_u_8cpp.html">testCPU.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
