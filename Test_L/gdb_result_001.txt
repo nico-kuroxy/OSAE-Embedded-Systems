@@ -1,0 +1,22 @@
+warning: Can not parse XML target description; XML support was disabled at compile time
+0x00000000 in ?? ()
+Loading section .text, size 0x313f0 lma 0x40000000
+Loading section .gcc_except_table, size 0xcf lma 0x400313f0
+Loading section .rodata, size 0x1ff0 lma 0x400314c0
+Loading section .data, size 0x7a738 lma 0x400334b0
+Start address 0x40000000, load size 711655
+Transfer rate: 63179 KB/sec, 15470 bytes/write.
+Hardware assisted breakpoint 1 at 0x4000294c: file ../src/tests/testsUnitaires.cpp, line 16.
+Hardware assisted breakpoint 2 at 0x40002988: file ../src/tests/testsUnitaires.cpp, line 21.
+Temporary breakpoint 3 at 0x40001d18: file ../src/main.cpp, line 34.
+[New Thread 2]
+
+Thread 1 hit Temporary breakpoint 3, main () at ../src/main.cpp:34
+34		if (testUnitaireExtract()) printf("Erreur détectée dans la fonction extract().\n");
+
+Thread 1 received signal SIGTERM, Terminated.
+__text_start () at /opt/bcc-2.2.0-gcc/src/libbcc/shared/trap/trap_table_mvt.S:168
+168	/opt/bcc-2.2.0-gcc/src/libbcc/shared/trap/trap_table_mvt.S: Aucun fichier ou dossier de ce type.
+
+/home/nicolas/eclipse-workspace-cpu/Projet/Test_L/gdb_batch_001.txt:86: Error in sourced command file:
+Remote connection closed

@@ -1,0 +1,91 @@
+set remotetimeout 10000
+
+
+shell echo set logging file $HOME/eclipse-workspace-cpu/$PROJECT/Test_L/gdb_result_001.txt > tmp.txt 
+source tmp.txt
+shell rm tmp.txt
+
+set logging overwrite on
+set logging on
+set height 0 
+set print pretty on 
+set print array on
+
+tar extended-remote localhost:1234
+
+load
+
+mon perf reset
+
+hbreak test 
+#hbreak : commande qui peut déclarer un point d'arrêt sur la fonction test
+commands	
+#Donc si on lance l'exécution, on passe par ce point d'arrêt
+	silent
+	printf "\n**** test = %s ****\n", testName
+	
+	if (testId == 0)
+		mon perf reset
+	end
+	
+	if (testId == 1)
+		mon perf
+		mon perf reset
+	end
+	if (testId != 2)
+		print p_usSrcData[0][0]
+	end
+	if (testId == 2)
+	
+		mon perf
+	end
+	
+	cont
+#Ajouter un cont permet d'enchainer les applications à tester sans devoir relancer un gdb à chaque fois.
+
+end
+
+
+hbreak testTri
+#hbreak : commande qui peut déclarer un point d'arrêt sur la fonction test
+commands	
+#Donc si on lance l'exécution, on passe par ce point d'arrêt
+	silent
+	printf "\n**** test = %s ****\n", testName
+	
+	if (testId == 0)
+		mon perf reset
+	end
+	
+	if (testId == 1)
+		mon perf
+		mon perf reset
+	end
+	if (typeTri == 0)
+		print quick
+	end
+	if (typeTri == 1)
+		print heap
+	end
+	if (testId == 2)
+	
+		mon perf
+	end
+	
+	cont
+#Ajouter un cont permet d'enchainer les applications à tester sans devoir relancer un gdb à chaque fois.
+
+end
+
+
+
+start
+cont
+
+mon quit
+detach
+
+#Nombre de cycle : cycle processeur
+#Processeur : régit par une horloge (à 50Mhz ici)
+#Donc un cycle ici vaut 20ns, puisqu'en une seconde on a 50 000 000 de coups d'horloges
+#16 090 * 20ns = 0,32ms pour afficher "Hello world".
