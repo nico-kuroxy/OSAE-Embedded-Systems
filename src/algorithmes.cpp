@@ -12,7 +12,7 @@
 #include "algorithmes.h"
 
 
-void extract(unsigned short **values, unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample){
+void extract(unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample){
 	for (int i=0; i<len_capteurs; i++){
 		for (int j=0; j<len_pixels; j++){
 			values[i][j] = p_usSrcData[id_sample][i][j];
@@ -20,7 +20,7 @@ void extract(unsigned short **values, unsigned short ***raw_data, int len_capteu
 	}
 }
 
-void mediane(SortEngine engine, unsigned short **values, unsigned short *temp, double *mediane, int len_capteurs, int len_pixels){
+void mediane(SortEngine engine, unsigned short values[][uiSensorSize], unsigned short *temp, double *mediane, int len_capteurs, int len_pixels){
 	//On crée un buffer temporaire dans lequel on va stocker toutes les valeurs des kièmes pixels de chaque ligne
 
 	//On remplit le tableau des valeurs temporaires pour chaque pixel "k" de tous les capteurs c
@@ -38,7 +38,7 @@ void mediane(SortEngine engine, unsigned short **values, unsigned short *temp, d
 	//free(temp); //segfault
 }
 
-void moyenne(unsigned short **values, double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur){
+void moyenne(unsigned short values[][uiSensorSize], double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur){
 	//On crée une variable temporaire pour calculer les valeurs moyennes en excluant les valeurs aberrantes
 	double temp;
 	double nb;
@@ -81,8 +81,9 @@ int décompteHotspot(double *Vs, double seuil, int len_pixels){
 void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur){
 
 	//VARIABLES/////////////////////////////////////////////////////////////////////////////
-	//On initialise les variables dont on va avoir besoin
-	unsigned short** values = (unsigned short**) malloc(len_capteurs * sizeof(unsigned short*));
+
+	//On initialise les variables dont on va avoir besoin avec des mallocs
+	/*unsigned short** values = (unsigned short**) malloc(len_capteurs * sizeof(unsigned short*));
 	for (int i = 0; i < len_capteurs; i++){
 	    values[i] = (unsigned short*) malloc(sizeof(unsigned short) * len_pixels);
 	}
@@ -92,14 +93,24 @@ void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samp
 	double *Vref = (double*) malloc(len_pixels* sizeof(double));
 	double *Vsoustrait = (double*) malloc(len_pixels * sizeof(double));
 	SortEngine *engine = new SortEngine();
-	engine->setSortType(SortEngine::QUICK);
+	engine->setSortType(SortEngine::QUICK);*/
+
+	//ON initialise les variables dont on va avoir besoin de manière brute
+	unsigned short values[uiSensorCount][uiSensorSize];
+	unsigned short temp[len_capteurs] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vmediane[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vmoyenne[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vref[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vsoustrait[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	SortEngine engine;
+	engine.setSortType(SortEngine::QUICK);
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	//INITIALISATION////////////////////////////////////////////////////////////////////////
 	//On récupère le sample de référence
 	extract(values, raw_data, len_capteurs, len_pixels, sample_ref);
 	//On en extrait le vecteur médiane
-	mediane(*engine, values, temp, Vmediane, len_capteurs, len_pixels);
+	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 	//On en extrait le vecteur moyen
 	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
 	//On en extrait le vecteur de référence
@@ -112,7 +123,7 @@ void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samp
 		//On récupère le sample c
 		extract(values, raw_data, len_capteurs, len_pixels, c);
 		//On en extrait le vecteur médiane
-		mediane(*engine, values, temp, Vmediane, len_capteurs, len_pixels);
+		mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 		//On en extrait le vecteur moyen
 		moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
 		//On soustrait le vecteur de référence
@@ -123,8 +134,8 @@ void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samp
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	//CONCLUSION////////////////////////////////////////////////////////////////////////////
-	//On nettoie les variables
-	delete engine;
+	//On nettoie les variables si on a utilisé malloc
+	/*delete engine;
 	free(Vsoustrait);
 	free(Vref);
 	free(Vmoyenne);
@@ -133,7 +144,7 @@ void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samp
 	for (int i = 0; i < len_capteurs; i++){
 	    free(values[i]);
 	}
-	free(values);
+	free(values);*/
 	////////////////////////////////////////////////////////////////////////////////////////
 
 }

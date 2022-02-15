@@ -16,17 +16,52 @@
 #include <stdio.h> //Pour les printf
 
 int testUnitaireExtract();
+/**
+ * \fn testUnitaireExtract();
+ * \brief Test unitaire vérifiant le bon fonctionnement de la fonction extract.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 int testUnitaireMediane();
+/**
+ * \fn testUnitaireMediane()
+ * \brief Test unitaire vérifiant le bon fonctionnement de la fonction médiane.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 int testUnitaireMoyenne();
+/**
+ * \fn testUnitaireMoyenne();
+ * \brief Test unitaire vérifiant le bon fonctionnement de la fonction moyenne.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 int testUnitaireMémorisation();
+/**
+ * \fn testUnitaireMémorisation();
+ * \brief Test unitaire vérifiant le bon fonctionnement de la fonction mémorisation.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 int testUnitaireSoustraction();
+/**
+ * \fn testUnitaireSoustraction();
+ * \brief Test unitaire vérifiant le bon fonctionnement de la fonction soustraction.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 int testUnitaireDécompte();
+/**
+ * \fn testUnitaireDécompte();
+ * \brief Test unitaire vérifiant le bon fonctionnement de la fonction décompte.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 int testUnitaireTraitement();
+/**
+ * \fn testUnitaireTraitement();
+ * \brief Test d'intégration vérifiant le bon fonctionnement du processus global avec l'enchaînement des différentes fonctions.
+ *
+* \return int, 0 si le processus s'est déroulé correctement. */
 
 #endif /* TEST_UNIT_H_ */

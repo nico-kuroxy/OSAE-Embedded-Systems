@@ -22,20 +22,17 @@ int testUnitaireMediane(){
 	unsigned short test2[10] = {11, 52, 22, 93, 73, 3, 23, 42, 32, 92};
 	unsigned short test3[10] = {4, 4, 1, 8, 71, 34, 22, 2, 22, 12};
 
-	unsigned short** values = (unsigned short**) malloc(len_capteurs * sizeof(unsigned short*));
-	for (int i = 0; i < len_capteurs; i++){
-	    values[i] = (unsigned short*) malloc(sizeof(unsigned short) * len_pixels);
-	}
+	unsigned short values[uiSensorCount][uiSensorSize];
 	for (int i = 0; i < len_pixels; i++){
 		values[0][i] = test[i];
 		values[1][i] = test2[i];
 		values[2][i] = test3[i];
 	}
-	double *Vmediane = (double*) malloc(len_pixels * sizeof(double));
-	unsigned short *temp = (unsigned short*) malloc(len_pixels * sizeof(unsigned short));
-	SortEngine *engine = new SortEngine();
+	double Vmediane[len_pixels] = {0, 0, 0, 0};
+	unsigned short temp[len_pixels] = {0, 0, 0, 0};
+	SortEngine engine;
 
-	mediane(*engine, values, temp, Vmediane, len_capteurs, len_pixels);
+	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 	printf("testUnitaireMediane\n");
 	for (int i = 0; i < len_pixels; i++){
 		printf("Médiane pixel %d : %f\n\n", i, Vmediane[i]);
@@ -52,17 +49,13 @@ int testUnitaireMoyenne(){
 	unsigned short test3[4] = {120, 4, 1, 8};
 	double Vmediane[4] = {11, 5, 2, 8};
 
-	unsigned short** values = (unsigned short**) malloc(len_capteurs * sizeof(unsigned short*));
-	for (int i = 0; i < len_capteurs; i++){
-	    values[i] = (unsigned short*) malloc(sizeof(unsigned short) * len_pixels);
-	}
+	unsigned short values[uiSensorCount][uiSensorSize]; //On n'initialise pas le tableau "à la main" avec des valeurs par défaut puisque cela prendrait trop de ressources (5000 valeurs)
 	for (int i = 0; i < len_pixels; i++){
 		values[0][i] = test[i];
 		values[1][i] = test2[i];
 		values[2][i] = test3[i];
 	}
-	//unsigned short *Vmediane = (unsigned short*) malloc(len_pixels * sizeof(unsigned short));
-	double *Vmoyenne = (double*) malloc(len_pixels * sizeof(double));
+	double Vmoyenne[len_pixels] = {0, 0, 0, 0};
 
 	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
 	printf("testUnitaireMoyenne\n");
@@ -76,7 +69,7 @@ int testUnitaireMoyenne(){
 int testUnitaireMémorisation(){
 	int len_pixels = 4;
 	double test[4] = {10, 5, 2, 1000};
-	double *Vref = (double*) malloc(len_pixels * sizeof(double));
+	double Vref[len_pixels] = {0, 0, 0, 0};
 	mémorisation(Vref, test, len_pixels);
 	printf("testUnitaireMémorisation\n");
 	for (int i = 0; i < len_pixels; i++){
@@ -90,7 +83,7 @@ int testUnitaireSoustraction(){
 	int len_pixels = 4;
 	double Vref[4] = {100, 5, 2, 1000};
 	double Vmu[4] = {10, 53, 23, 10003};
-	double *Vs = (double*) malloc(len_pixels * sizeof(double));
+	double Vs[len_pixels] = {0, 0, 0, 0};
 	soustraction(Vref, Vmu, Vs, len_pixels);
 	printf("testUnitaireSoustraction\n");
 	for (int i = 0; i < len_pixels; i++){
@@ -110,12 +103,12 @@ int testUnitaireDécompte(){
 }
 
 int testUnitaireTraitement(){
-	int *nb_hotspots = (int*) malloc(uiSimCount * sizeof(int));
+	//int *nb_hotspots = (int*) malloc(uiSimCount * sizeof(int));
+	int nb_hotspots[uiSimCount] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	traitementGlobal((unsigned short ***)p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
 	for (int c=0; c < uiSimCount; c++){
 		printf("Nombre d'hotspots de l'échantillon %d : %d\n", c+1, nb_hotspots[c]);
 	}
-	free(nb_hotspots);
 	return 0;
 }
 

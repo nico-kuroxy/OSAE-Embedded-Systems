@@ -97,15 +97,15 @@ $(document).ready(function(){initNavTree('algorithmes_8cpp.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aeb6e8a58d49092b353e42ea3a1ae67fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#aeb6e8a58d49092b353e42ea3a1ae67fd">extract</a> (unsigned short **values, unsigned short ***raw_data, int len_capteurs, int len_pixels, int id_sample)</td></tr>
-<tr class="memdesc:aeb6e8a58d49092b353e42ea3a1ae67fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'acquisition d'une nouvelle série de données issue d'un sample donné depuis l'ensemble fourni.  <a href="#aeb6e8a58d49092b353e42ea3a1ae67fd">More...</a><br /></td></tr>
-<tr class="separator:aeb6e8a58d49092b353e42ea3a1ae67fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a374877ebe0068beb7940008d14080447"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a374877ebe0068beb7940008d14080447">mediane</a> (<a class="el" href="class_sort_engine.html">SortEngine</a> engine, unsigned short **values, unsigned short *temp, double *mediane, int len_capteurs, int len_pixels)</td></tr>
-<tr class="memdesc:a374877ebe0068beb7940008d14080447"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va remplir un vecteur contenant à chaque case k la valeur médiane de tous les k-ièmes pixels de chaque capteur.  <a href="#a374877ebe0068beb7940008d14080447">More...</a><br /></td></tr>
-<tr class="separator:a374877ebe0068beb7940008d14080447"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9c45e34c6c725b9aa6b63d1839b60fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#ae9c45e34c6c725b9aa6b63d1839b60fb">moyenne</a> (unsigned short **values, double *<a class="el" href="algorithmes_8h.html#a06bf2812dbf75d183c8a8125a39544d8">mediane</a>, double *moyenne, int len_capteurs, int len_pixels, int erreur)</td></tr>
-<tr class="memdesc:ae9c45e34c6c725b9aa6b63d1839b60fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va remplir un vecteur contenant à chaque case k la valeur moyenne de tous les k-ièmes pixels de chaque capteurs en excluant les valeurs aberrantes.  <a href="#ae9c45e34c6c725b9aa6b63d1839b60fb">More...</a><br /></td></tr>
-<tr class="separator:ae9c45e34c6c725b9aa6b63d1839b60fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a928baec8773443df547800de2874f823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a928baec8773443df547800de2874f823">extract</a> (unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels, int id_sample)</td></tr>
+<tr class="memdesc:a928baec8773443df547800de2874f823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'acquisition d'une nouvelle série de données issue d'un sample donné depuis l'ensemble fourni.  <a href="#a928baec8773443df547800de2874f823">More...</a><br /></td></tr>
+<tr class="separator:a928baec8773443df547800de2874f823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593955b00b559c6ce4d70f1c436bf8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a593955b00b559c6ce4d70f1c436bf8c0">mediane</a> (<a class="el" href="class_sort_engine.html">SortEngine</a> engine, unsigned short values[][uiSensorSize], unsigned short *temp, double *mediane, int len_capteurs, int len_pixels)</td></tr>
+<tr class="memdesc:a593955b00b559c6ce4d70f1c436bf8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va remplir un vecteur contenant à chaque case k la valeur médiane de tous les k-ièmes pixels de chaque capteur.  <a href="#a593955b00b559c6ce4d70f1c436bf8c0">More...</a><br /></td></tr>
+<tr class="separator:a593955b00b559c6ce4d70f1c436bf8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0069f2dd3b3d9f38a7d71089771c8557"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a0069f2dd3b3d9f38a7d71089771c8557">moyenne</a> (unsigned short values[][uiSensorSize], double *<a class="el" href="algorithmes_8h.html#a29c4641c2fadab35605825455e9958db">mediane</a>, double *moyenne, int len_capteurs, int len_pixels, int erreur)</td></tr>
+<tr class="memdesc:a0069f2dd3b3d9f38a7d71089771c8557"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va remplir un vecteur contenant à chaque case k la valeur moyenne de tous les k-ièmes pixels de chaque capteurs en excluant les valeurs aberrantes.  <a href="#a0069f2dd3b3d9f38a7d71089771c8557">More...</a><br /></td></tr>
+<tr class="separator:a0069f2dd3b3d9f38a7d71089771c8557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5d4891271ccc97460d75ee7baab2469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#ae5d4891271ccc97460d75ee7baab2469">mémorisation</a> (double *Vref, double *Vmu, int len_pixels)</td></tr>
 <tr class="memdesc:ae5d4891271ccc97460d75ee7baab2469"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va copier le vecteur Vmu dans le vecteur Vref. Cette fonction est utilisée pour mémoriser le vecteur de référence.  <a href="#ae5d4891271ccc97460d75ee7baab2469">More...</a><br /></td></tr>
 <tr class="separator:ae5d4891271ccc97460d75ee7baab2469"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,8 +175,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aeb6e8a58d49092b353e42ea3a1ae67fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb6e8a58d49092b353e42ea3a1ae67fd">&#9670;&nbsp;</a></span>extract()</h2>
+<a id="a928baec8773443df547800de2874f823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a928baec8773443df547800de2874f823">&#9670;&nbsp;</a></span>extract()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,8 +184,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">extract </td>
           <td>(</td>
-          <td class="paramtype">unsigned short **&#160;</td>
-          <td class="paramname"><em>values</em>, </td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>values</em>[][uiSensorSize], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -236,8 +236,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a374877ebe0068beb7940008d14080447"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a374877ebe0068beb7940008d14080447">&#9670;&nbsp;</a></span>mediane()</h2>
+<a id="a593955b00b559c6ce4d70f1c436bf8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a593955b00b559c6ce4d70f1c436bf8c0">&#9670;&nbsp;</a></span>mediane()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,8 +251,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned short **&#160;</td>
-          <td class="paramname"><em>values</em>, </td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>values</em>[][uiSensorSize], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -304,8 +304,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9c45e34c6c725b9aa6b63d1839b60fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9c45e34c6c725b9aa6b63d1839b60fb">&#9670;&nbsp;</a></span>moyenne()</h2>
+<a id="a0069f2dd3b3d9f38a7d71089771c8557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0069f2dd3b3d9f38a7d71089771c8557">&#9670;&nbsp;</a></span>moyenne()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,8 +313,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">moyenne </td>
           <td>(</td>
-          <td class="paramtype">unsigned short **&#160;</td>
-          <td class="paramname"><em>values</em>, </td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>values</em>[][uiSensorSize], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

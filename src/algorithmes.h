@@ -22,9 +22,9 @@
 #include  <math.h>
 
 
-void extract(unsigned short **values, unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample);
+void extract(unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample);
 /**
- * \fn extract(unsigned short **values, unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample);
+ * \fn extract(unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample);
  * \brief Fonction d'acquisition d'une nouvelle série de données issue d'un sample donné depuis l'ensemble fourni.
  *
  * \param values tableau à 2 dimensions de short int. Chaque ligne correspond aux données d'un capteur, chaque colonne k contient les valeurs des pixels numéro "k" de chaque capteur.
@@ -36,9 +36,9 @@ void extract(unsigned short **values, unsigned short ***raw_data, int len_capteu
  * \return Rien, on va modifier le tableau "values" initialisé en dehors de la fonction pour y stocker les données extraites.
  */
 
-void mediane(SortEngine engine, unsigned short **values, unsigned short *temp, double *mediane, int len_capteurs, int len_pixels);
+void mediane(SortEngine engine, unsigned short values[][uiSensorSize], unsigned short *temp, double *mediane, int len_capteurs, int len_pixels);
 /**
- * \fn mediane(SortEngine engine, unsigned short **values, unsigned short *temp, double *mediane, int len_capteurs, int len_pixels);
+ * \fn mediane(SortEngine engine, unsigned short values[][uiSensorSize], unsigned short *temp, double *mediane, int len_capteurs, int len_pixels);
  * \brief On va remplir un vecteur contenant à chaque case k la valeur médiane de tous les k-ièmes pixels de chaque capteur.
  *
  * \param engine SortEngine contenant l'algorithme de tri que nous allons utiliser.
@@ -52,9 +52,9 @@ void mediane(SortEngine engine, unsigned short **values, unsigned short *temp, d
  */
 
 
-void moyenne(unsigned short **values, double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur);
+void moyenne(unsigned short values[][uiSensorSize], double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur);
 /**
- * \fn moyenne(unsigned short **values, double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur);
+ * \fn moyenne(unsigned short values[][uiSensorSize], double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur);
  * \brief On va remplir un vecteur contenant à chaque case k la valeur moyenne de tous les k-ièmes pixels de chaque capteurs en excluant les valeurs aberrantes.
  *
  * \param values tableau à 2 dimensions de short int. Chaque ligne correspond aux données d'un capteur, chaque colonne k contient les valeurs des pixels numéro "k" de chaque capteur.
