@@ -13,5 +13,6 @@ Lien du google sheet regroupant les différents bilan :
 - [ ] Estimation du débit
 - [ ] Rapport
 - [ ] Explication des deux différences par rapport à la théorie
-- [x] =Demander ce qu'ils attendent lorsqu'ils disent qu'ils veulent les "résultats" parmis les livrables... Les excels des bilans cpu ?=
-- [x] =Documentation code des tests=
+- [x] <span class="bg-info text-success">Demander ce qu'ils attendent lorsqu'ils disent qu'ils veulent les "résultats" parmis les livrables... Les excels des bilans cpu ?</span> 
+- [x] <span class="bg-info text-success">Documentation code des tests</span> 
+
