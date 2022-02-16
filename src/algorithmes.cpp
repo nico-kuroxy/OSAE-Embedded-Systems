@@ -12,10 +12,10 @@
 #include "algorithmes.h"
 
 
-void extract(unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample){
+void extract(unsigned short values[][uiSensorSize], unsigned short raw_data[][uiSensorCount][uiSensorSize], int len_capteurs, int len_pixels,  int id_sample){
 	for (int i=0; i<len_capteurs; i++){
 		for (int j=0; j<len_pixels; j++){
-			values[i][j] = p_usSrcData[id_sample][i][j];
+			values[i][j] = raw_data[id_sample][i][j];
 		}
 	}
 }
@@ -77,7 +77,7 @@ int décompteHotspot(double *Vs, double seuil, int len_pixels){
 	return h;
 }
 
-void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur){
+void traitementGlobal(unsigned short raw_data[][uiSensorCount][uiSensorSize], int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur){
 
 	//VARIABLES/////////////////////////////////////////////////////////////////////////////
 	//ON initialise les variables dont on va avoir besoin de manière brute

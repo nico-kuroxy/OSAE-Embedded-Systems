@@ -103,9 +103,9 @@ $(document).ready(function(){initNavTree('algorithmes_8h.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a555f089ed2b495da2d8f3492dd5cfc28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8h.html#a555f089ed2b495da2d8f3492dd5cfc28">extract</a> (unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels, int id_sample)</td></tr>
-<tr class="memdesc:a555f089ed2b495da2d8f3492dd5cfc28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'acquisition d'une nouvelle série de données issue d'un sample donné depuis l'ensemble fourni.  <a href="#a555f089ed2b495da2d8f3492dd5cfc28">More...</a><br /></td></tr>
-<tr class="separator:a555f089ed2b495da2d8f3492dd5cfc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14ccb6d6eea132d0be979eb873fe24b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8h.html#a14ccb6d6eea132d0be979eb873fe24b7">extract</a> (unsigned short values[][uiSensorSize], unsigned short raw_data[][uiSensorCount][uiSensorSize], int len_capteurs, int len_pixels, int id_sample)</td></tr>
+<tr class="memdesc:a14ccb6d6eea132d0be979eb873fe24b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'acquisition d'une nouvelle série de données issue d'un sample donné depuis l'ensemble fourni.  <a href="#a14ccb6d6eea132d0be979eb873fe24b7">More...</a><br /></td></tr>
+<tr class="separator:a14ccb6d6eea132d0be979eb873fe24b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29c4641c2fadab35605825455e9958db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8h.html#a29c4641c2fadab35605825455e9958db">mediane</a> (<a class="el" href="class_sort_engine.html">SortEngine</a> engine, unsigned short values[][uiSensorSize], unsigned short *temp, double *mediane, int len_capteurs, int len_pixels)</td></tr>
 <tr class="memdesc:a29c4641c2fadab35605825455e9958db"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va remplir un vecteur contenant à chaque case k la valeur médiane de tous les k-ièmes pixels de chaque capteur.  <a href="#a29c4641c2fadab35605825455e9958db">More...</a><br /></td></tr>
 <tr class="separator:a29c4641c2fadab35605825455e9958db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,9 +121,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6dc93f79a4e5569eceb67cb00602b985"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8h.html#a6dc93f79a4e5569eceb67cb00602b985">décompteHotspot</a> (double *Vs, double seuil, int len_pixels)</td></tr>
 <tr class="memdesc:a6dc93f79a4e5569eceb67cb00602b985"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va incrémenter un compteur à chaque fois qu'on détecte un hotspot dont la valeur est supérieure à seuil dans le vecteur Vs.  <a href="#a6dc93f79a4e5569eceb67cb00602b985">More...</a><br /></td></tr>
 <tr class="separator:a6dc93f79a4e5569eceb67cb00602b985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f7b43dfec8746fd7b3705ad0fa220b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8h.html#af2f7b43dfec8746fd7b3705ad0fa220b">traitementGlobal</a> (unsigned short ***raw_data, int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur)</td></tr>
-<tr class="memdesc:af2f7b43dfec8746fd7b3705ad0fa220b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intégration des différentes méthodes développées pour mener l'opération de traitement des données sur tous les samples.  <a href="#af2f7b43dfec8746fd7b3705ad0fa220b">More...</a><br /></td></tr>
-<tr class="separator:af2f7b43dfec8746fd7b3705ad0fa220b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a604beefd3cefa46840b1d1e8dee59d8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8h.html#a604beefd3cefa46840b1d1e8dee59d8c">traitementGlobal</a> (unsigned short raw_data[][uiSensorCount][uiSensorSize], int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur)</td></tr>
+<tr class="memdesc:a604beefd3cefa46840b1d1e8dee59d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intégration des différentes méthodes développées pour mener l'opération de traitement des données sur tous les samples.  <a href="#a604beefd3cefa46840b1d1e8dee59d8c">More...</a><br /></td></tr>
+<tr class="separator:a604beefd3cefa46840b1d1e8dee59d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Déclarations des fonctions utilisées pour le projet de système embarqué </p>
@@ -181,8 +181,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a555f089ed2b495da2d8f3492dd5cfc28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a555f089ed2b495da2d8f3492dd5cfc28">&#9670;&nbsp;</a></span>extract()</h2>
+<a id="a14ccb6d6eea132d0be979eb873fe24b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14ccb6d6eea132d0be979eb873fe24b7">&#9670;&nbsp;</a></span>extract()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,8 +196,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned short ***&#160;</td>
-          <td class="paramname"><em>raw_data</em>, </td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>raw_data</em>[][uiSensorCount][uiSensorSize], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -479,8 +479,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af2f7b43dfec8746fd7b3705ad0fa220b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2f7b43dfec8746fd7b3705ad0fa220b">&#9670;&nbsp;</a></span>traitementGlobal()</h2>
+<a id="a604beefd3cefa46840b1d1e8dee59d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a604beefd3cefa46840b1d1e8dee59d8c">&#9670;&nbsp;</a></span>traitementGlobal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -488,8 +488,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void traitementGlobal </td>
           <td>(</td>
-          <td class="paramtype">unsigned short ***&#160;</td>
-          <td class="paramname"><em>raw_data</em>, </td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>raw_data</em>[][uiSensorCount][uiSensorSize], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

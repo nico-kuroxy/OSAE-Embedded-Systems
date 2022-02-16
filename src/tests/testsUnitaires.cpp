@@ -136,7 +136,7 @@ int testUnitaireTraitement(){
 			14, 10, 6, 8, 8,
 			11, 6, 14, 6, 7
 	};
-	traitementGlobal((unsigned short ***)p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
+	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
 	float nb_correspondance = 0;
 	for (int c=0; c < (int)uiSimCount; c++){
 		if (nb_hotspots[c] == nb_hotspots_attendus[c]){ nb_correspondance ++;}

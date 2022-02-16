@@ -22,9 +22,9 @@
 #include  <math.h>
 
 
-void extract(unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample);
+void extract(unsigned short values[][uiSensorSize], unsigned short raw_data[][uiSensorCount][uiSensorSize], int len_capteurs, int len_pixels,  int id_sample);
 /**
- * \fn extract(unsigned short values[][uiSensorSize], unsigned short ***raw_data, int len_capteurs, int len_pixels,  int id_sample);
+ * \fn extract(unsigned short values[][uiSensorSize], unsigned short raw_data[][uiSensorCount][uiSensorSize], int len_capteurs, int len_pixels,  int id_sample);
  * \brief Fonction d'acquisition d'une nouvelle série de données issue d'un sample donné depuis l'ensemble fourni.
  *
  * \param values tableau à 2 dimensions de short int. Chaque ligne correspond aux données d'un capteur, chaque colonne k contient les valeurs des pixels numéro "k" de chaque capteur.
@@ -104,9 +104,9 @@ int décompteHotspot(double *Vs, double seuil, int len_pixels);
  * \return int contenant le nombre de hotspots détectés.
  */
 
-void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur);
+void traitementGlobal(unsigned short raw_data[][uiSensorCount][uiSensorSize], int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur);
 /**
- * \fn traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur);
+ * \fn traitementGlobal(unsigned short raw_data[][uiSensorCount][uiSensorSize], int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur);
  * \brief Intégration des différentes méthodes développées pour mener l'opération de traitement des données sur tous les samples.
  *
  * \param raw_data tableau à 3 dimennsions de short int. La première correspond aux samples, la deuxième correspond aux capteurs et la troisième correspond aux données de ces capteurs.

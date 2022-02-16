@@ -276,7 +276,7 @@ int testAlgoCPU(){
 	printf("\n====== Test Start Algorithmes ======\n");
 	testStart();
 	//Test d'extraction
-	extract(values, (unsigned short ***)p_usSrcData, len_capteurs, len_pixels, 0);
+	extract(values, p_usSrcData, len_capteurs, len_pixels, 0);
 	printf("\n======= Test Extract ======\n");
 	testBasic();//test("extraction de l'échantillon", id_1);
 	//Test du calcul de médiane
@@ -300,7 +300,7 @@ int testAlgoCPU(){
 	printf("\n======= Test Hotspot ======\n");
 	testBasic();//test("décompte des hotspots", id_1);
 	//Test du traitement global
-	traitementGlobal((unsigned short ***)p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
+	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
 	printf("\n======= Test Algo ======\n");
 	testBasic();//test("traitement global de tous les échantillons", id_1);
 	//fin de la phase de tests
