@@ -12,10 +12,15 @@
 #include "testsUnitaires.h"
 
 int testUnitaireExtract(){
-	return 0;
+	printf("\n==================== TEST UNITAIRE EXTRACTION ====================\n");
+	int flag = 0;
+	printf("================================================================================\n");
+	return flag;
 }
 
 int testUnitaireMediane(){
+	printf("\n==================== TEST UNITAIRE MEDIANE ====================\n");
+	int flag = 0;
 	int len_capteurs = 3;
 	int len_pixels = 10;
 	unsigned short test[10] = {1, 5, 2, 9, 7, 3, 2, 4, 2, 92};
@@ -37,10 +42,13 @@ int testUnitaireMediane(){
 	for (int i = 0; i < len_pixels; i++){
 		printf("Médiane pixel %d : %f\n\n", i, Vmediane[i]);
 	}
-	return 0;
+	printf("================================================================================\n");
+	return flag;
 }
 
 int testUnitaireMoyenne(){
+	printf("\n==================== TEST UNITAIRE MOYENNE ====================\n");
+	int flag = 0;
 	int len_capteurs = 3;
 	int len_pixels = 4;
 	int erreur = 5;
@@ -63,10 +71,13 @@ int testUnitaireMoyenne(){
 		printf("Médiane pixel %d : %f\n", i, Vmediane[i]);
 		printf("Moyenne pixel %d : %f\n\n", i, Vmoyenne[i]);
 	}
-	return 0;
+	printf("================================================================================\n");
+	return flag;
 }
 
 int testUnitaireMémorisation(){
+	printf("\n==================== TEST UNITAIRE MEMORISATION ====================\n");
+	int flag = 0;
 	int len_pixels = 4;
 	double test[4] = {10, 5, 2, 1000};
 	double Vref[len_pixels] = {0, 0, 0, 0};
@@ -76,10 +87,13 @@ int testUnitaireMémorisation(){
 		printf("Vecteur d'origine case %d : %f\n", i, test[i]);
 		printf("Vecteur copié case %d: %f\n\n", i, Vref[i]);
 	}
-	return 0;
+	printf("================================================================================\n");
+	return flag;
 }
 
 int testUnitaireSoustraction(){
+	printf("\n==================== TEST UNITAIRE SOUSTRACTION ====================\n");
+	int flag = 0;
 	int len_pixels = 4;
 	double Vref[4] = {100, 5, 2, 1000};
 	double Vmu[4] = {10, 53, 23, 10003};
@@ -89,26 +103,53 @@ int testUnitaireSoustraction(){
 	for (int i = 0; i < len_pixels; i++){
 		printf("Vecteur soustrait case %d : %f\n", i, Vs[i]);
 	}
-	return 0;
+	printf("================================================================================\n");
+	return flag;
 }
 
 int testUnitaireDécompte(){
+	printf("\n==================== TEST UNITAIRE DECOMPTE HOTSPOT ====================\n");
+	int flag = 0;
 	int len_pixels = 4;
 	double Vs[4] = {100, 5, 2, 1000};
 	double seuil = 100;
 	int k = décompteHotspot(Vs, seuil, len_pixels);
 	printf("testUnitaireDécompte\n");
 	printf("Décompte : %d\n\n", k);
-	return 0;
+	printf("================================================================================\n");
+	return flag;
 }
 
 int testUnitaireTraitement(){
-	//int *nb_hotspots = (int*) malloc(uiSimCount * sizeof(int));
+	printf("\n==================== TEST UNITAIRE TRAITEMENT ====================\n");
+	int flag = 0;
 	int nb_hotspots[uiSimCount] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int nb_hotspots_attendus[uiSimCount] = {
+			0, 9, 6, 9, 11,
+			9, 7, 7, 5, 7,
+			11, 12, 8, 11, 8,
+			9, 3, 15, 11, 19,
+			8, 4, 11, 13, 10,
+			14, 10, 11, 9, 8,
+			9, 10, 10, 9, 11,
+			11, 7, 5, 6, 6,
+			14, 10, 6, 8, 8,
+			11, 6, 14, 6, 7
+	};
 	traitementGlobal((unsigned short ***)p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
-	for (int c=0; c < uiSimCount; c++){
+	float nb_correspondance = 0;
+	for (int c=0; c < (int)uiSimCount; c++){
+		if (nb_hotspots[c] == nb_hotspots_attendus[c]){ nb_correspondance ++;}
 		printf("Nombre d'hotspots de l'échantillon %d : %d\n", c+1, nb_hotspots[c]);
+		printf("Nombre d'hostpots attendus pour l'échantillon %d : %d\n", c+1, nb_hotspots_attendus[c]);
 	}
-	return 0;
+	float taux_de_correspondance = nb_correspondance/uiSimCount;
+	if (taux_de_correspondance<0.95){
+		printf("\n[TEST FAILURE] : taux de correspondance de %f, inférieur à 0.95.\n", taux_de_correspondance);
+		flag = -1;
+	}
+	printf("\n[TEST SUCCESS] : taux de correspondance de %f, supérieur ou égal à 0.95.\n", taux_de_correspondance);
+	printf("================================================================================\n");
+	return flag;
 }
 

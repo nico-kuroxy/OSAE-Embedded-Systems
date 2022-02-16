@@ -62,6 +62,9 @@ int testUnitaireTraitement();
  * \fn testUnitaireTraitement();
  * \brief Test d'intégration vérifiant le bon fonctionnement du processus global avec l'enchaînement des différentes fonctions.
  *
+ * On compare la liste du nombre de hotspots attendus avec la liste retournée par le processus global.
+ * On considère que le test est réussi si on a plus de 95% de correspondance.
+ *
 * \return int, 0 si le processus s'est déroulé correctement. */
 
 #endif /* TEST_UNIT_H_ */
