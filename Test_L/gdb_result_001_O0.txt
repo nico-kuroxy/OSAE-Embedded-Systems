@@ -1,0 +1,402 @@
+warning: Can not parse XML target description; XML support was disabled at compile time
+0x00000000 in ?? ()
+Loading section .text, size 0x351a0 lma 0x40000000
+Loading section .gcc_except_table, size 0x10f lma 0x400351a0
+Loading section .rodata, size 0x2210 lma 0x400352b0
+Loading section .data, size 0x7a738 lma 0x400374c0
+Start address 0x40000000, load size 728055
+Transfer rate: 37420 KB/sec, 15490 bytes/write.
+Hardware assisted breakpoint 1 at 0x40002c00: file ../src/tests/testCPU.cpp, line 19.
+Hardware assisted breakpoint 2 at 0x40002c3c: file ../src/tests/testCPU.cpp, line 24.
+Temporary breakpoint 3 at 0x40001f64: file ../src/main.cpp, line 31.
+[New Thread 2]
+
+Thread 1 hit Temporary breakpoint 3, main () at ../src/main.cpp:31
+31		if (testUnitaireExtract()) printf("Erreur détectée dans la fonction extract().\n");
+
+**** test = start Tri ****
+
+**** test = quicksort ****
+Merged performance statistics for all started CPUs:
+ Cycles       :     36899
+ Instructions :     25829
+ Overall CPI  :      1.43
+ CPU performance (50.0 MHz)  :  35.00 MOPS (35.00 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   98.7 % (inst: 99.6, data: 95.9)
+ Simulated time              :   0.74 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  65.12 %
+ Simulator performance       :  22.79 MIPS
+ Used time (sys + user)      :   0.00 s
+
+$1 =   {9801,
+  9805,
+  9808,
+  9809,
+  9811,
+  9813,
+  9813,
+  9823,
+  9825,
+  9828,
+  9838,
+  9838,
+  9843,
+  9851,
+  9857,
+  9865,
+  9867,
+  9873,
+  9874,
+  9875,
+  9883,
+  9890,
+  9893,
+  9898,
+  9900,
+  9908,
+  9914,
+  9918,
+  9919,
+  9939,
+  9939,
+  9941,
+  9943,
+  9949,
+  9949,
+  9950,
+  9950,
+  9953,
+  9954,
+  9957,
+  9959,
+  9964,
+  9965,
+  9965,
+  9979,
+  9980,
+  9981,
+  9990,
+  9996,
+  9997,
+  10001,
+  10006,
+  10010,
+  10016,
+  10016,
+  10021,
+  10025,
+  10025,
+  10028,
+  10030,
+  10034,
+  10043,
+  10047,
+  10048,
+  10048,
+  10054,
+  10056,
+  10066,
+  10066,
+  10067,
+  10069,
+  10071,
+  10074,
+  10076,
+  10080,
+  10081,
+  10085,
+  10104,
+  10105,
+  10107,
+  10111,
+  10114,
+  10116,
+  10120,
+  10123,
+  10129,
+  10129,
+  10132,
+  10136,
+  10144,
+  10149,
+  10154,
+  10162,
+  10163,
+  10169,
+  10170,
+  10192,
+  10192,
+  10193,
+  10199}
+
+**** test = heapsort ****
+Merged performance statistics for all started CPUs:
+ Cycles       :     67382
+ Instructions :     38362
+ Overall CPI  :      1.76
+ CPU performance (50.0 MHz)  :  28.47 MOPS (28.47 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   95.1 % (inst: 99.9, data: 81.3)
+ Simulated time              :   1.35 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  85.89 %
+ Simulator performance       :  24.45 MIPS
+ Used time (sys + user)      :   0.00 s
+
+$2 =   {9801,
+  9805,
+  9808,
+  9809,
+  9811,
+  9813,
+  9813,
+  9823,
+  9825,
+  9828,
+  9838,
+  9838,
+  9843,
+  9851,
+  9857,
+  9865,
+  9867,
+  9873,
+  9874,
+  9875,
+  9883,
+  9890,
+  9893,
+  9898,
+  9900,
+  9908,
+  9914,
+  9918,
+  9919,
+  9939,
+  9939,
+  9941,
+  9943,
+  9949,
+  9949,
+  9950,
+  9950,
+  9953,
+  9954,
+  9957,
+  9959,
+  9964,
+  9965,
+  9965,
+  9979,
+  9980,
+  9981,
+  9990,
+  9996,
+  9997,
+  10001,
+  10006,
+  10010,
+  10016,
+  10016,
+  10021,
+  10025,
+  10025,
+  10028,
+  10030,
+  10034,
+  10043,
+  10047,
+  10048,
+  10048,
+  10054,
+  10056,
+  10066,
+  10066,
+  10067,
+  10069,
+  10071,
+  10074,
+  10076,
+  10080,
+  10081,
+  10085,
+  10104,
+  10105,
+  10107,
+  10111,
+  10114,
+  10116,
+  10120,
+  10123,
+  10129,
+  10129,
+  10132,
+  10136,
+  10144,
+  10149,
+  10154,
+  10162,
+  10163,
+  10169,
+  10170,
+  10192,
+  10192,
+  10193,
+  10199}
+
+**** test = end Tri ****
+Merged performance statistics for all started CPUs:
+ Cycles       :        41
+ Instructions :        19
+ Overall CPI  :      2.16
+ CPU performance (50.0 MHz)  :  23.17 MOPS (23.17 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   85.7 % (inst: 90.0, data:  0.0)
+ Simulated time              :   0.00 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  20.23 %
+ Simulator performance       :   4.69 MIPS
+ Used time (sys + user)      :   0.00 s
+
+
+**** test = start Algo ****
+
+**** test = extraction de l'échantillon ****
+Merged performance statistics for all started CPUs:
+ Cycles       :    297069
+ Instructions :    235846
+ Overall CPI  :      1.26
+ CPU performance (50.0 MHz)  :  39.70 MOPS (39.70 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   99.1 % (inst: 100.0, data: 94.8)
+ Simulated time              :   5.94 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  76.39 %
+ Simulator performance       :  30.32 MIPS
+ Used time (sys + user)      :   0.01 s
+
+
+**** test = vecteur médiane de l'échantillon ****
+Merged performance statistics for all started CPUs:
+ Cycles       :   1529212
+ Instructions :   1120670
+ Overall CPI  :      1.36
+ CPU performance (50.0 MHz)  :  36.64 MOPS (36.64 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   99.6 % (inst: 99.9, data: 98.8)
+ Simulated time              :  30.58 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  75.78 %
+ Simulator performance       :  27.77 MIPS
+ Used time (sys + user)      :   0.04 s
+
+
+**** test = vecteur moyenne de l'échantillon ****
+Merged performance statistics for all started CPUs:
+ Cycles       :    779188
+ Instructions :    386055
+ Overall CPI  :      2.02
+ CPU performance (50.0 MHz)  :  24.77 MOPS (21.38 MIPS, 3.40 MFLOPS)
+ Cache hit rate              :   99.2 % (inst: 100.0, data: 96.1)
+ Simulated time              :  15.58 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       : 106.13 %
+ Simulator performance       :  26.29 MIPS
+ Used time (sys + user)      :   0.01 s
+
+
+**** test = mémorisation du vecteur de référence ****
+Merged performance statistics for all started CPUs:
+ Cycles       :      2446
+ Instructions :       664
+ Overall CPI  :      3.68
+ CPU performance (50.0 MHz)  :  13.57 MOPS (13.57 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   74.2 % (inst: 96.8, data:  1.4)
+ Simulated time              :   0.05 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       : 132.38 %
+ Simulator performance       :  17.97 MIPS
+ Used time (sys + user)      :   0.00 s
+
+
+**** test = soustraction des vecteurs ****
+Merged performance statistics for all started CPUs:
+ Cycles       :     18452
+ Instructions :      8740
+ Overall CPI  :      2.11
+ CPU performance (50.0 MHz)  :  23.68 MOPS (21.24 MIPS, 2.44 MFLOPS)
+ Cache hit rate              :   98.8 % (inst: 99.7, data: 94.5)
+ Simulated time              :   0.37 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       : 110.80 %
+ Simulator performance       :  26.24 MIPS
+ Used time (sys + user)      :   0.00 s
+
+
+**** test = décompte des hotspots ****
+Merged performance statistics for all started CPUs:
+ Cycles       :      4451
+ Instructions :      2056
+ Overall CPI  :      2.16
+ CPU performance (50.0 MHz)  :  23.10 MOPS (21.96 MIPS, 1.13 MFLOPS)
+ Cache hit rate              :   95.7 % (inst: 99.3, data: 85.1)
+ Simulated time              :   0.09 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       : 129.20 %
+ Simulator performance       :  29.84 MIPS
+ Used time (sys + user)      :   0.00 s
+
+
+**** test = traitement global de tous les échantillons ****
+Merged performance statistics for all started CPUs:
+ Cycles       : 134098599
+ Instructions :  89545699
+ Overall CPI  :      1.50
+ CPU performance (50.0 MHz)  :  33.39 MOPS (32.36 MIPS, 1.03 MFLOPS)
+ Cache hit rate              :   99.5 % (inst: 99.9, data: 97.8)
+ Simulated time              :   2.68 s
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  87.27 %
+ Simulator performance       :  29.14 MIPS
+ Used time (sys + user)      :   3.07 s
+
+
+**** test = end Algo ****
+Merged performance statistics for all started CPUs:
+ Cycles       :        84
+ Instructions :        19
+ Overall CPI  :      4.42
+ CPU performance (50.0 MHz)  :  11.31 MOPS (11.31 MIPS, 0.00 MFLOPS)
+ Cache hit rate              :   66.7 % (inst: 70.0, data:  0.0)
+ Simulated time              :   0.00 ms
+ Processor utilisation       : 100.00 %
+
+Performance of the simulator:
+ Real-time performance       :  54.20 %
+ Simulator performance       :   6.13 MIPS
+ Used time (sys + user)      :   0.00 s
+
+
+Thread 1 received signal SIGTERM, Terminated.
+__text_start () at /opt/bcc-2.2.0-gcc/src/libbcc/shared/trap/trap_table_mvt.S:168
+168	/opt/bcc-2.2.0-gcc/src/libbcc/shared/trap/trap_table_mvt.S: Aucun fichier ou dossier de ce type.
+
+/home/nicolas/eclipse-workspace-cpu/Projet/Test_L/gdb_batch_001.txt:86: Error in sourced command file:
+Remote connection closed

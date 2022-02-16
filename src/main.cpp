@@ -26,7 +26,6 @@ int main() {
 *
 * \return int, 0 si le processus s'est déroulé correctement.
 */
-
 	//TESTS UNITAIRES//////////////////////////////////////////////////////////////
 	if (testUnitaireExtract()) printf("Erreur détectée dans la fonction extract().\n");
 

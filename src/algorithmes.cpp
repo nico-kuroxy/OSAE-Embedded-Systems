@@ -35,7 +35,6 @@ void mediane(SortEngine engine, unsigned short values[][uiSensorSize], unsigned 
 		if (len_capteurs%2 == 0)	mediane[k] = (temp[len_capteurs/2] + temp[(len_capteurs/2)-1])/2;
 		else mediane[k] = temp[(int)len_capteurs/2];
 	}
-	//free(temp); //segfault
 }
 
 void moyenne(unsigned short values[][uiSensorSize], double *mediane, double *moyenne, int len_capteurs, int len_pixels, int erreur){
@@ -81,27 +80,13 @@ int décompteHotspot(double *Vs, double seuil, int len_pixels){
 void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samples, int len_capteurs, int len_pixels, int sample_ref, double seuil, int erreur){
 
 	//VARIABLES/////////////////////////////////////////////////////////////////////////////
-
-	//On initialise les variables dont on va avoir besoin avec des mallocs
-	/*unsigned short** values = (unsigned short**) malloc(len_capteurs * sizeof(unsigned short*));
-	for (int i = 0; i < len_capteurs; i++){
-	    values[i] = (unsigned short*) malloc(sizeof(unsigned short) * len_pixels);
-	}
-	unsigned short *temp = (unsigned short*) malloc(len_capteurs * sizeof(unsigned short));
-	double *Vmediane = (double*) malloc(len_pixels * sizeof(double));
-	double *Vmoyenne = (double*) malloc(len_pixels * sizeof(double));
-	double *Vref = (double*) malloc(len_pixels* sizeof(double));
-	double *Vsoustrait = (double*) malloc(len_pixels * sizeof(double));
-	SortEngine *engine = new SortEngine();
-	engine->setSortType(SortEngine::QUICK);*/
-
 	//ON initialise les variables dont on va avoir besoin de manière brute
 	unsigned short values[uiSensorCount][uiSensorSize];
-	unsigned short temp[len_capteurs] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	double Vmediane[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	double Vmoyenne[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	double Vref[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	double Vsoustrait[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	unsigned short temp[len_capteurs];
+	double Vmediane[len_pixels];
+	double Vmoyenne[len_pixels];
+	double Vref[len_pixels];
+	double Vsoustrait[len_pixels];
 	SortEngine engine;
 	engine.setSortType(SortEngine::QUICK);
 	////////////////////////////////////////////////////////////////////////////////////////
@@ -132,19 +117,6 @@ void traitementGlobal(unsigned short ***raw_data, int *nb_hotspots, int len_samp
 		nb_hotspots[c] = décompteHotspot(Vsoustrait, seuil, len_pixels);
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
-
-	//CONCLUSION////////////////////////////////////////////////////////////////////////////
-	//On nettoie les variables si on a utilisé malloc
-	/*delete engine;
-	free(Vsoustrait);
-	free(Vref);
-	free(Vmoyenne);
-	free(Vmediane);
-	free(temp);
-	for (int i = 0; i < len_capteurs; i++){
-	    free(values[i]);
-	}
-	free(values);*/
 	////////////////////////////////////////////////////////////////////////////////////////
 
 }

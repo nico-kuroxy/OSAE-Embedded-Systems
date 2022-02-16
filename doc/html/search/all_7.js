@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['test',['test',['../test_c_p_u_8cpp.html#a330a536055c903bda778af6ee5e939ef',1,'test(const char *testName, int testId):&#160;testCPU.cpp'],['../test_c_p_u_8h.html#aa78ff59f0ed7efc70effd6ac4d15d854',1,'test(const char *testName, int testId):&#160;testCPU.cpp']]],
   ['testalgocpu',['testAlgoCPU',['../test_c_p_u_8cpp.html#a4ea3cff990d68c6e6302dbe1d5d835e5',1,'testAlgoCPU():&#160;testCPU.cpp'],['../test_c_p_u_8h.html#af6dce0d0de0d798c82301079e8e18fd2',1,'testAlgoCPU():&#160;testCPU.cpp']]],
+  ['testbasic',['testBasic',['../test_c_p_u_8cpp.html#a43130cb481135ee931f1562a1503378a',1,'testBasic():&#160;testCPU.cpp'],['../test_c_p_u_8h.html#a64a56270ecea6f3f1e14a6f16d8c887c',1,'testBasic():&#160;testCPU.cpp']]],
   ['testcpu_2ecpp',['testCPU.cpp',['../test_c_p_u_8cpp.html',1,'']]],
   ['testcpu_2eh',['testCPU.h',['../test_c_p_u_8h.html',1,'']]],
+  ['testend',['testEnd',['../test_c_p_u_8cpp.html#a221dc27c249b9f6b8523ebe7eb26724e',1,'testEnd():&#160;testCPU.cpp'],['../test_c_p_u_8h.html#a8434b0f81551b18323b982b735ff8cbf',1,'testEnd():&#160;testCPU.cpp']]],
+  ['teststart',['testStart',['../test_c_p_u_8cpp.html#aa7178645f2e281e856a823b197b0a54a',1,'testStart():&#160;testCPU.cpp'],['../test_c_p_u_8h.html#a687326b851ceea7249ff15e11e952e0f',1,'testStart():&#160;testCPU.cpp']]],
   ['testsunitaires_2ecpp',['testsUnitaires.cpp',['../tests_unitaires_8cpp.html',1,'']]],
   ['testsunitaires_2eh',['testsUnitaires.h',['../tests_unitaires_8h.html',1,'']]],
-  ['testtri',['testTri',['../test_c_p_u_8cpp.html#ae073745fc33f9d9b3409513a5ada8d49',1,'testTri(const char *testName, int testId, int typeTri):&#160;testCPU.cpp'],['../test_c_p_u_8h.html#acd9f1929d3720d52a8649e68201d5138',1,'testTri(const char *testName, int testId, int typeTri):&#160;testCPU.cpp']]],
   ['testtricpu',['testTriCPU',['../test_c_p_u_8cpp.html#a7fde2eda47fee6c1075a1946986cfbfb',1,'testTriCPU():&#160;testCPU.cpp'],['../test_c_p_u_8h.html#a352490a9696826ad1d89e1ea9552674f',1,'testTriCPU():&#160;testCPU.cpp']]],
   ['testunitairedécompte',['testUnitaireDécompte',['../tests_unitaires_8cpp.html#adbe6a1c2b6849d88130395f84ec88351',1,'testUnitaireDécompte():&#160;testsUnitaires.cpp'],['../tests_unitaires_8h.html#a3053de895d16225303f4a1fda9937bad',1,'testUnitaireDécompte():&#160;testsUnitaires.cpp']]],
   ['testunitaireextract',['testUnitaireExtract',['../tests_unitaires_8cpp.html#accf0a3a915bfa4479ae10b00ccdf1d1b',1,'testUnitaireExtract():&#160;testsUnitaires.cpp'],['../tests_unitaires_8h.html#a88c88410d2b6cd0f7dd346b1be7d8764',1,'testUnitaireExtract():&#160;testsUnitaires.cpp']]],
