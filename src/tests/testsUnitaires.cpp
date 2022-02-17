@@ -95,14 +95,42 @@ int testUnitaireSoustraction(){
 	printf("\n==================== TEST UNITAIRE SOUSTRACTION ====================\n");
 	int flag = 0;
 	int len_pixels = 4;
+	//Série 1
 	double Vref[4] = {100, 5, 2, 1000};
 	double Vmu[4] = {10, 53, 23, 10003};
 	double Vs[len_pixels] = {0, 0, 0, 0};
+	double Vattendu[len_pixels] = {0, 48, 21, 9003};
 	soustraction(Vref, Vmu, Vs, len_pixels);
-	printf("testUnitaireSoustraction\n");
 	for (int i = 0; i < len_pixels; i++){
-		printf("Vecteur soustrait case %d : %f\n", i, Vs[i]);
+		printf("Vecteur soustrait 1 case %d : %f\t", i, Vs[i]);
+		printf("\nVecteur attendu 1 case %d : %f\t", i, Vattendu[i]);
+		if (Vs[i] != Vattendu[i]) flag = -1;
 	}
+	//Série 2
+	double Vref2[4] = {100, 500, 200, 100000};
+	double Vmu2[4] = {10, 53, 23, 10003};
+	double Vs2[len_pixels] = {0, 0, 0, 0};
+	double Vattendu2[len_pixels] = {0, 0, 0, 0};
+	soustraction(Vref2, Vmu2, Vs2, len_pixels);
+	for (int i = 0; i < len_pixels; i++){
+		printf("\nVecteur soustrait 1 case %d : %f\t", i, Vs2[i]);
+		printf("\nVecteur attendu 1 case %d : %f\t", i, Vattendu2[i]);
+		if (Vs2[i] != Vattendu2[i]) flag = -1;
+	}
+	//Série 3
+	double Vref3[4] = {1, 50, 200, 100};
+	double Vmu3[4] = {10, 234, 2712, 653};
+	double Vs3[len_pixels] = {0, 0, 0, 0};
+	double Vattendu3[len_pixels] = {9, 184, 2512, 553};
+	soustraction(Vref3, Vmu3, Vs3, len_pixels);
+	for (int i = 0; i < len_pixels; i++){
+		printf("\nVecteur soustrait 1 case %d : %f\t", i, Vs3[i]);
+		printf("\nVecteur attendu 1 case %d : %f\t", i, Vattendu3[i]);
+		if (Vs3[i] != Vattendu3[i]) flag = -1;
+	}
+	//Tests
+	if (flag==-1) printf("\n\n[TEST FAILURE]\n");
+	else printf("\n\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
 	return flag;
 }
