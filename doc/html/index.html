@@ -89,20 +89,34 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="textblock"><h1>Documentation utilisateur du projet de système embarqué </h1>
 <hr/>
 <h2>Avant-propos :</h2>
+<p>Dans le cadre d'une étude de phase A d'un instrument spatial, on désire effectuer une étude de faisabilité et un dimensionnement de la partie numérique de cet instrument. L'instrument est constitué d'un ensemble de 50 capteurs linéaires (une colonne) de 100 pixels. Chaque capteur est associé à une électronique de proximité effectuant entre autre une conversion analogique/numérique sur 16 bits et un transfert des résultats vers une RAM accessible par un DPU. Le transfert est effectué au travers d'un lien SpaceWire via le protocole RMAP. On considérera que le lien offre un débit de 50Mbits.s-1.</p>
+<p>La présente documentation a pour objectif de référencer les algorithmes que nous avons développés qui visent à traiter les données acquises et transférées telles que décrites dans le paragraphe précédent. Le traitement effectué permet de déterminer le nombre de hotspots ou "points chauds" présent dans un jeu d'images en comparaison à une image de référence.</p>
 <hr/>
 <h2>Auteurs :</h2>
+<p>Nicolas Erbetti Hugo Destannes Froment</p>
 <hr/>
 <h2>Encadrants :</h2>
+<p>Philippe Plasson LeeRoy Malac-Allain</p>
 <hr/>
 <h2>Installation</h2>
+<ul>
+<li>Télécharger le répertoire "Projet" contenant nos codes sources ainsi que le fichier de configuration du projet sous Eclipse.</li>
+<li>Importer ce répertoire dans Eclipse ("File" -&gt; "Import" -&gt; "General" -&gt; "Project from folder or archive").</li>
+<li>Compiler le projet en s'assurant que le builder type est "internal builder" (C/C++ Build), que le préfix et le path valent respectivement "sparc-gaisler-elf-" et votre chemin vers le dossier bin du dossier de bcc (ATTENTION : cette variable dépend de votre répertoire d'installation du dossier de bcc ! Chez nous, elle était dans un dossier bin dans home/user/ mais il faut l'adapter à votre configuration !) (C/C++ Build -&gt; Settings), et que le mode d'optimisation est O2 (C/C++ Build -&gt; Settings -&gt; Cross G++ Compiler -&gt; Optimization -&gt; Optimization Level).</li>
+<li>Adapter les chemins renseignés dans les fichiers gdb_batch_001.txt et start_tsim.csh du sous-dossier Test_L à votre configuration.</li>
+</ul>
 <hr/>
 <h2>Exécution</h2>
-<ul>
-<li></li>
-<li></li>
+<p>Dans Eclipse, après avoir ouvert le projet et suivi les étapes de la section Installation :</p><ul>
+<li>Créer une nouvelle configuration de lancement s'il n'y en a pas. Create Launch Configuration -&gt; Debug -&gt; C/C++ Application puis sélectionner les différents fichiers / projets qui nous intéressent ici.</li>
+<li>Lancer le programme en mode run sur la configuration de lancement dédiée.</li>
 </ul>
 <hr/>
 <h2>Références bibliographiques :</h2>
+<ul>
+<li>Sujet du projet.</li>
+<li>Cours de systèmes embarqués pour le spatial dispensés par M. Plasson.</li>
+</ul>
 <hr/>
  </div></div><!-- contents -->
 </div><!-- doc-content -->
