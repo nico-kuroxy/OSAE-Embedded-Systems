@@ -59,29 +59,44 @@ int testUnitaireMediane(){
 	printf("\n==================== TEST UNITAIRE MEDIANE ====================\n");
 	int flag = 0;
 	int len_capteurs = 3;
-	int len_pixels = 10;
+	int len_pixels = 5;
 	//Série 1
-	unsigned short test[10] = {1, 5, 2, 9, 7, 3, 2, 4, 2, 92};
-	unsigned short test2[10] = {11, 52, 22, 93, 73, 3, 23, 42, 32, 92};
-	unsigned short test3[10] = {4, 4, 1, 8, 71, 34, 22, 2, 22, 12};
-	unsigned short values[uiSensorCount][uiSensorSize];
-	for (int i = 0; i < len_pixels; i++){
-		values[0][i] = test[i];
-		values[1][i] = test2[i];
-		values[2][i] = test3[i];
-	}
+	unsigned short data_raw_1[uiSensorCount][uiSensorSize] = {{1, 5, 8, 9, 10}, //capteur 1
+			 {3, 4, 0, 81, 3}, //capteur 2
+			 {10, 43, 20, 3, 2} //capteur 3
+			};
+	double Vmediane_attendue_1[len_pixels] = {3, 5, 8, 9, 3};
 	double Vmediane[len_pixels] = {0, 0, 0, 0};
 	unsigned short temp[len_pixels] = {0, 0, 0, 0};
 	SortEngine engine;
-	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
+	mediane(engine, data_raw_1, temp, Vmediane, len_capteurs, len_pixels);
 	for (int i = 0; i < len_pixels; i++){
-		printf("Médiane pixel %d : %f\n\n", i, Vmediane[i]);
+		printf("Série 1 : Médiane pixel %d : %f, valeur attendue : %f\n", i, Vmediane[i], Vmediane_attendue_1[i]);
+		if (Vmediane[i] != Vmediane_attendue_1[i]) flag = -1;
 	}
-
 	//Série 2
-
+	unsigned short data_raw_2[uiSensorCount][uiSensorSize] = {{8, 44, 1, 76, 270}, //capteur 1
+			 {53, 77, 53, 1, 33}, //capteur 2
+			 {103, 343, 870, 9, 32} //capteur 3
+			};
+	double Vmediane_attendue_2[len_pixels] = {53, 77, 53, 9, 33};
+	mediane(engine, data_raw_2, temp, Vmediane, len_capteurs, len_pixels);
+	for (int i = 0; i < len_pixels; i++){
+		printf("Série 2 : Médiane pixel %d : %f, valeur attendue : %f\n", i, Vmediane[i], Vmediane_attendue_2[i]);
+		if (Vmediane[i] != Vmediane_attendue_2[i]) flag = -1;
+	}
 	//Série 3
-
+	unsigned short data_raw_3[uiSensorCount][uiSensorSize] = {{100, 4765, 8728, 9459, 730}, //capteur 1
+			 {334, 413, 40, 841, 376}, //capteur 2
+			 {610, 65443, 2540, 6653, 2445}, //capteur 3
+			 {61, 643, 250, 653, 24}, //capteur 4
+			};
+	double Vmediane_attendue_3[len_pixels] = {217, 2704, 1395, 3747, 553};
+	mediane(engine, data_raw_3, temp, Vmediane, len_capteurs+1, len_pixels);
+	for (int i = 0; i < len_pixels; i++){
+		printf("Série 3 : Médiane pixel %d : %f, valeur attendue : %f\n", i, Vmediane[i], Vmediane_attendue_3[i]);
+		if (Vmediane[i] != Vmediane_attendue_3[i]) flag = -1;
+	}
 	//Tests
 	if (flag==-1) printf("\n[TEST FAILURE]\n");
 	else printf("\n[TEST SUCCESS]\n");
