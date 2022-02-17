@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef STAR_H_
-#define STAR_H_
+#ifndef ALGO_H_
+#define ALGO_H_
 
 
 #include "shared/const.h"
@@ -121,4 +121,4 @@ void traitementGlobal(unsigned short raw_data[][uiSensorCount][uiSensorSize], in
  * \return Rien, on va afficher le nombre de hotspots détectés pour chaque sample.
  */
 
-#endif /* STAR_H_ */
+#endif /* ALGO_H_ */

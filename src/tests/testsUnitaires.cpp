@@ -108,29 +108,46 @@ int testUnitaireMoyenne(){
 	printf("\n==================== TEST UNITAIRE MOYENNE ====================\n");
 	int flag = 0;
 	int len_capteurs = 3;
-	int len_pixels = 4;
+	int len_pixels = 5;
 	//Série 1
 	int erreur = 5;
-	unsigned short test[4] = {10, 5, 2, 1000};
-	unsigned short test2[4] = {11, 63, 21, 8};
-	unsigned short test3[4] = {120, 4, 1, 8};
-	double Vmediane[4] = {11, 5, 2, 8};
-	unsigned short values[uiSensorCount][uiSensorSize]; //On n'initialise pas le tableau "à la main" avec des valeurs par défaut puisque cela prendrait trop de ressources (5000 valeurs)
+	unsigned short data_raw_1[uiSensorCount][uiSensorSize] = {{1, 5, 8, 9, 10}, //capteur 1
+			 {3, 4, 0, 81, 3}, //capteur 2
+			 {10, 43, 20, 3, 2} //capteur 3
+			};
+	double Vmediane_attendue_1[len_pixels] = {3, 5, 8, 9, 3};
+	double Vmoyenne[len_pixels] = {0, 0, 0, 0, 0};
+	double Vmoyenne_attendue1[len_pixels] = {2, 4.5, 8, 9, 2.5};
+	moyenne(data_raw_1, Vmediane_attendue_1, Vmoyenne, len_capteurs, len_pixels, erreur);
 	for (int i = 0; i < len_pixels; i++){
-		values[0][i] = test[i];
-		values[1][i] = test2[i];
-		values[2][i] = test3[i];
-	}
-	double Vmoyenne[len_pixels] = {0, 0, 0, 0};
-	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
-	for (int i = 0; i < len_pixels; i++){
-		printf("Médiane pixel %d : %f\n", i, Vmediane[i]);
-		printf("Moyenne pixel %d : %f\n\n", i, Vmoyenne[i]);
+		printf("Série 1 : Moyenne pixel %d : %f, valeur attendue : %f\n", i, Vmoyenne[i], Vmoyenne_attendue1[i]);
+		if (Vmoyenne[i] != Vmoyenne_attendue1[i]) flag = -1;
 	}
 	//Série 2
-
+	unsigned short data_raw_2[uiSensorCount][uiSensorSize] = {{8, 44, 1, 76, 270}, //capteur 1
+			 {53, 77, 53, 1, 33}, //capteur 2
+			 {103, 343, 870, 9, 32} //capteur 3
+			};
+	double Vmediane_attendue_2[len_pixels] = {53, 77, 53, 9, 33};
+	double Vmoyenne_attendue2[len_pixels] = {53, 77, 53, 9, 32.5};
+	moyenne(data_raw_2, Vmediane_attendue_2, Vmoyenne, len_capteurs, len_pixels, erreur);
+	for (int i = 0; i < len_pixels; i++){
+		printf("Série 1 : Moyenne pixel %d : %f, valeur attendue : %f\n", i, Vmoyenne[i], Vmoyenne_attendue2[i]);
+		if (Vmoyenne[i] != Vmoyenne_attendue2[i]) flag = -1;
+	}
 	//Série 3
-
+	unsigned short data_raw_3[uiSensorCount][uiSensorSize] = {{100, 4765, 8728, 9459, 730}, //capteur 1
+			 {334, 413, 40, 841, 376}, //capteur 2
+			 {610, 65443, 2540, 6653, 2445}, //capteur 3
+			 {61, 643, 250, 653, 24}, //capteur 4
+			};
+	double Vmediane_attendue_3[len_pixels] = {217, 2704, 1395, 3747, 553};
+	double Vmoyenne_attendue3[len_pixels] = {0, 0, 0, 0, 0};
+	moyenne(data_raw_3, Vmediane_attendue_3, Vmoyenne, len_capteurs, len_pixels, erreur);
+	for (int i = 0; i < len_pixels; i++){
+		printf("Série 1 : Moyenne pixel %d : %f, valeur attendue : %f\n", i, Vmoyenne[i], Vmoyenne_attendue3[i]);
+		if (Vmoyenne[i] != Vmoyenne_attendue3[i]) flag = -1;
+	}
 	//Tests
 	if (flag==-1) printf("\n[TEST FAILURE]\n");
 	else printf("\n[TEST SUCCESS]\n");

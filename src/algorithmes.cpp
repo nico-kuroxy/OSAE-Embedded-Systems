@@ -49,7 +49,8 @@ void moyenne(unsigned short values[][uiSensorSize], double *mediane, double *moy
 			if (abs(values[c][k] - mediane[k]) < erreur) {temp += values[c][k]; nb++;}
 		}
 		//On calcule la moyenne des valeurs des pixels k et on la stocke dans moyenne
-		moyenne[k] = temp/nb;
+		if (nb!=0) moyenne[k] = temp/nb;
+		else moyenne[k] = 0;
 	}
 }
 
