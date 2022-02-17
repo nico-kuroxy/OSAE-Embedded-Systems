@@ -14,7 +14,41 @@
 int testUnitaireExtract(){
 	printf("\n==================== TEST UNITAIRE EXTRACTION ====================\n");
 	int flag = 0;
+	//Série 1
+	unsigned short raw_data[3][3][5] = {
+			{{1, 5, 8, 9, 10}, //capteur 1
+			 {3, 4, 0, 81, 3}, //capteur 2
+			 {10, 43, 20, 3, 2} //capteur 3
+			}, //sample 2
+			{{8, 44, 1, 76, 270}, //capteur 1
+			 {53, 77, 53, 1, 33}, //capteur 2
+			 {103, 343, 870, 9, 32} //capteur 3
+			}, //sample 3
+			{{100, 4765, 8728, 9459, 730}, //capteur 1
+			 {334, 413, 40, 841, 376}, //capteur 2
+			 {610, 65443, 2540, 6653, 2445} //capteur 3
+			}
+	};
+	unsigned short data_expected_1[3][5] = {{1, 5, 8, 9, 10}, //capteur 1
+			 {3, 4, 0, 81, 3}, //capteur 2
+			 {10, 43, 20, 3, 2} //capteur 3
+			};
+	unsigned short data_expected_2[3][5] = {{8, 44, 1, 76, 270}, //capteur 1
+			 {53, 77, 53, 1, 33}, //capteur 2
+			 {103, 343, 870, 9, 32} //capteur 3
+			};
+	unsigned short data_expected_3[3][5] = {{100, 4765, 8728, 9459, 730}, //capteur 1
+			 {334, 413, 40, 841, 376}, //capteur 2
+			 {610, 65443, 2540, 6653, 2445} //capteur 3
+			};
 	//Tests
+	for (int i = 0; i <3; i++){
+		for (int j = 0; j<5; j++){
+			if (data_expected_1[i][j] != raw_data[0][i][j]) flag = -1;
+			else if (data_expected_2[i][j] != raw_data[1][i][j]) flag = -1;
+			else if (data_expected_3[i][j] != raw_data[2][i][j]) flag = -1;
+		}
+	}
 	if (flag==-1) printf("\n[TEST FAILURE]\n");
 	else printf("\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
@@ -26,10 +60,10 @@ int testUnitaireMediane(){
 	int flag = 0;
 	int len_capteurs = 3;
 	int len_pixels = 10;
+	//Série 1
 	unsigned short test[10] = {1, 5, 2, 9, 7, 3, 2, 4, 2, 92};
 	unsigned short test2[10] = {11, 52, 22, 93, 73, 3, 23, 42, 32, 92};
 	unsigned short test3[10] = {4, 4, 1, 8, 71, 34, 22, 2, 22, 12};
-
 	unsigned short values[uiSensorCount][uiSensorSize];
 	for (int i = 0; i < len_pixels; i++){
 		values[0][i] = test[i];
@@ -39,12 +73,15 @@ int testUnitaireMediane(){
 	double Vmediane[len_pixels] = {0, 0, 0, 0};
 	unsigned short temp[len_pixels] = {0, 0, 0, 0};
 	SortEngine engine;
-
 	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
-	printf("testUnitaireMediane\n");
 	for (int i = 0; i < len_pixels; i++){
 		printf("Médiane pixel %d : %f\n\n", i, Vmediane[i]);
 	}
+
+	//Série 2
+
+	//Série 3
+
 	//Tests
 	if (flag==-1) printf("\n[TEST FAILURE]\n");
 	else printf("\n[TEST SUCCESS]\n");
@@ -57,12 +94,12 @@ int testUnitaireMoyenne(){
 	int flag = 0;
 	int len_capteurs = 3;
 	int len_pixels = 4;
+	//Série 1
 	int erreur = 5;
 	unsigned short test[4] = {10, 5, 2, 1000};
 	unsigned short test2[4] = {11, 63, 21, 8};
 	unsigned short test3[4] = {120, 4, 1, 8};
 	double Vmediane[4] = {11, 5, 2, 8};
-
 	unsigned short values[uiSensorCount][uiSensorSize]; //On n'initialise pas le tableau "à la main" avec des valeurs par défaut puisque cela prendrait trop de ressources (5000 valeurs)
 	for (int i = 0; i < len_pixels; i++){
 		values[0][i] = test[i];
@@ -70,13 +107,15 @@ int testUnitaireMoyenne(){
 		values[2][i] = test3[i];
 	}
 	double Vmoyenne[len_pixels] = {0, 0, 0, 0};
-
 	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
-	printf("testUnitaireMoyenne\n");
 	for (int i = 0; i < len_pixels; i++){
 		printf("Médiane pixel %d : %f\n", i, Vmediane[i]);
 		printf("Moyenne pixel %d : %f\n\n", i, Vmoyenne[i]);
 	}
+	//Série 2
+
+	//Série 3
+
 	//Tests
 	if (flag==-1) printf("\n[TEST FAILURE]\n");
 	else printf("\n[TEST SUCCESS]\n");
