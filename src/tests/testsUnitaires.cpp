@@ -14,6 +14,9 @@
 int testUnitaireExtract(){
 	printf("\n==================== TEST UNITAIRE EXTRACTION ====================\n");
 	int flag = 0;
+	//Tests
+	if (flag==-1) printf("\n[TEST FAILURE]\n");
+	else printf("\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
 	return flag;
 }
@@ -42,6 +45,9 @@ int testUnitaireMediane(){
 	for (int i = 0; i < len_pixels; i++){
 		printf("Médiane pixel %d : %f\n\n", i, Vmediane[i]);
 	}
+	//Tests
+	if (flag==-1) printf("\n[TEST FAILURE]\n");
+	else printf("\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
 	return flag;
 }
@@ -71,6 +77,9 @@ int testUnitaireMoyenne(){
 		printf("Médiane pixel %d : %f\n", i, Vmediane[i]);
 		printf("Moyenne pixel %d : %f\n\n", i, Vmoyenne[i]);
 	}
+	//Tests
+	if (flag==-1) printf("\n[TEST FAILURE]\n");
+	else printf("\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
 	return flag;
 }
@@ -79,14 +88,39 @@ int testUnitaireMémorisation(){
 	printf("\n==================== TEST UNITAIRE MEMORISATION ====================\n");
 	int flag = 0;
 	int len_pixels = 4;
-	double test[4] = {10, 5, 2, 1000};
+	//Série 1
+	double test[len_pixels] = {10, 5, 2, 1000};
 	double Vref[len_pixels] = {0, 0, 0, 0};
+	double Vattendu[len_pixels] = {10, 5, 2, 1000};
 	mémorisation(Vref, test, len_pixels);
-	printf("testUnitaireMémorisation\n");
 	for (int i = 0; i < len_pixels; i++){
-		printf("Vecteur d'origine case %d : %f\n", i, test[i]);
-		printf("Vecteur copié case %d: %f\n\n", i, Vref[i]);
+		printf("Vecteur d'origine 1 case %d : %f\n", i, test[i]);
+		printf("Vecteur copié 1 case %d: %f\n", i, Vref[i]);
+		if (Vref[i] != Vattendu[i]) flag = -1;
 	}
+	//Série 2
+	double test2[len_pixels] = {0, 0, 0, 0};
+	double Vref2[len_pixels] = {0, 0, 0, 0};
+	double Vattendu2[len_pixels] = {0, 0, 0, 0};
+	mémorisation(Vref2, test2, len_pixels);
+	for (int i = 0; i < len_pixels; i++){
+		printf("Vecteur d'origine 2 case %d : %f\n", i, test2[i]);
+		printf("Vecteur copié 2 case %d: %f\n", i, Vref2[i]);
+		if (Vref2[i] != Vattendu2[i]) flag = -1;
+	}
+	//Série 3
+	double test3[len_pixels] = {10.0, 5.32, 193.342, 1000};
+	double Vref3[len_pixels] = {0, 0, 0, 0};
+	double Vattendu3[len_pixels] = {10.0, 5.32, 193.342, 1000};
+	mémorisation(Vref3, Vattendu3, len_pixels);
+	for (int i = 0; i < len_pixels; i++){
+		printf("Vecteur d'origine 3 case %d : %f\n", i, test3[i]);
+		printf("Vecteur copié 3 case %d: %f\n", i, Vref3[i]);
+		if (Vref3[i] != test3[i]) flag = -1;
+	}
+	//Tests
+	if (flag==-1) printf("\n\n[TEST FAILURE]\n");
+	else printf("\n\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
 	return flag;
 }
@@ -113,8 +147,8 @@ int testUnitaireSoustraction(){
 	double Vattendu2[len_pixels] = {0, 0, 0, 0};
 	soustraction(Vref2, Vmu2, Vs2, len_pixels);
 	for (int i = 0; i < len_pixels; i++){
-		printf("\nVecteur soustrait 1 case %d : %f\t", i, Vs2[i]);
-		printf("\nVecteur attendu 1 case %d : %f\t", i, Vattendu2[i]);
+		printf("\nVecteur soustrait 2 case %d : %f\t", i, Vs2[i]);
+		printf("\nVecteur attendu 2 case %d : %f\t", i, Vattendu2[i]);
 		if (Vs2[i] != Vattendu2[i]) flag = -1;
 	}
 	//Série 3
@@ -124,8 +158,8 @@ int testUnitaireSoustraction(){
 	double Vattendu3[len_pixels] = {9, 184, 2512, 553};
 	soustraction(Vref3, Vmu3, Vs3, len_pixels);
 	for (int i = 0; i < len_pixels; i++){
-		printf("\nVecteur soustrait 1 case %d : %f\t", i, Vs3[i]);
-		printf("\nVecteur attendu 1 case %d : %f\t", i, Vattendu3[i]);
+		printf("\nVecteur soustrait 3 case %d : %f\t", i, Vs3[i]);
+		printf("\nVecteur attendu 3 case %d : %f\t", i, Vattendu3[i]);
 		if (Vs3[i] != Vattendu3[i]) flag = -1;
 	}
 	//Tests
