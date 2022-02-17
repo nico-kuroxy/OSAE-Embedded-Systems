@@ -111,11 +111,32 @@ int testUnitaireDécompte(){
 	printf("\n==================== TEST UNITAIRE DECOMPTE HOTSPOT ====================\n");
 	int flag = 0;
 	int len_pixels = 4;
+	//Série 1
 	double Vs[4] = {100, 5, 2, 1000};
 	double seuil = 100;
-	int k = décompteHotspot(Vs, seuil, len_pixels);
-	printf("testUnitaireDécompte\n");
-	printf("Décompte : %d\n\n", k);
+	int nb_1 = 1;
+	int k_1 = décompteHotspot(Vs, seuil, len_pixels);
+	printf("Nombre de hotspots détectés série 1 : %d\n", k_1);
+	printf("Nombre de hotspots attendus : %d\n", nb_1);
+	//Série 2
+	double Vs2[4] = {0, 0, 0, 0};
+	seuil = 1;
+	int nb_2 = 0;
+	int k_2 = décompteHotspot(Vs2, seuil, len_pixels);
+	printf("Nombre de hotspots détectés série 2 : %d\n", k_2);
+	printf("Nombre de hotspots attendus : %d\n", nb_2);
+	//Série 3
+	double Vs3[4] = {1000, 1001, 0.1, 10000};
+	seuil = 0;
+	int nb_3 = 4;
+	int k_3 = décompteHotspot(Vs3, seuil, len_pixels);
+	printf("Nombre de hotspots détectés série 1 : %d\n", k_3);
+	printf("Nombre de hotspots attendus : %d\n", nb_3);
+	//Tests
+	if (k_1 != nb_1){ flag = -1; printf("\n[TEST FAILURE]\n");}
+	else if (k_2 != nb_2){ flag = -1; printf("\n[TEST FAILURE]\n");}
+	else if (k_3 != nb_3){ flag = -1; printf("\n[TEST FAILURE]\n");}
+	else printf("\n[TEST SUCCESS]\n");
 	printf("================================================================================\n");
 	return flag;
 }
@@ -148,7 +169,7 @@ int testUnitaireTraitement(){
 		printf("\n[TEST FAILURE] : taux de correspondance de %f, inférieur à 0.95.\n", taux_de_correspondance);
 		flag = -1;
 	}
-	printf("\n[TEST SUCCESS] : taux de correspondance de %f, supérieur ou égal à 0.95.\n", taux_de_correspondance);
+	else printf("\n[TEST SUCCESS] : taux de correspondance de %f, supérieur ou égal à 0.95.\n", taux_de_correspondance);
 	printf("================================================================================\n");
 	return flag;
 }

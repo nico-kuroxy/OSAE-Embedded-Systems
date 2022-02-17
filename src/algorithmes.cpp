@@ -21,8 +21,6 @@ void extract(unsigned short values[][uiSensorSize], unsigned short raw_data[][ui
 }
 
 void mediane(SortEngine engine, unsigned short values[][uiSensorSize], unsigned short *temp, double *mediane, int len_capteurs, int len_pixels){
-	//On crée un buffer temporaire dans lequel on va stocker toutes les valeurs des kièmes pixels de chaque ligne
-
 	//On remplit le tableau des valeurs temporaires pour chaque pixel "k" de tous les capteurs c
 	for (int k=0; k<len_pixels; k++){
 		//On itère sur tous les capteurs
