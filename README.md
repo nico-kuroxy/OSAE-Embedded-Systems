@@ -15,6 +15,7 @@ Lien du google sheet regroupant les différents bilans :
 - [x] ReadMe Documentation
 - [x] Explication des deux différences par rapport à la théorie
 - [x] Demander ce qu'ils attendent lorsqu'ils disent qu'ils veulent les "résultats" parmis les livrables... Les excels des bilans cpu ?
+- [] Demander des règles d'interface... sous quelles formes arrivent les données qu'on donne à notre fonction extract -> pour savoir au niveau du bilan CPU combien de temps on a à notre disposition + si ce temps s'applique pour un sample ou pour tous les samples.
 - [x] Documentation code des tests
 
 

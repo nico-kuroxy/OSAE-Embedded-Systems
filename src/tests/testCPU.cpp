@@ -254,7 +254,7 @@ int testTriCPU(){
 }
 
 
-int testAlgoCPU(){
+/*int testAlgoCPUGlobal(){
 
 	//déclaration des variables utiles aux tests
 	int len_samples = uiSimCount;
@@ -303,6 +303,83 @@ int testAlgoCPU(){
 	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
 	printf("\n======= Test Algo ======\n");
 	testBasic();//test("traitement global de tous les échantillons", id_1);
+	//fin de la phase de tests
+	printf("\n======= Test End Algorithme ======\n");
+	testEnd();
+
+	return 0;
+}*/
+
+int testAlgoCPU(){
+
+	//déclaration des variables utiles aux tests
+	int len_samples = uiSimCount;
+	int len_capteurs = uiSensorCount;
+	int len_pixels = uiSensorSize;
+	int seuil = usHotspotDetectionThreshold;
+	int erreur = usGrantedError;
+	unsigned short values[uiSensorCount][uiSensorSize];
+	unsigned short temp[len_capteurs] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vmediane[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vmoyenne[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vref[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double Vsoustrait[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int nb_hotspots[len_samples] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	SortEngine engine;
+	engine.setSortType(SortEngine::QUICK);
+
+	//début de la phase de tests
+	printf("\n====== Test Start Algorithmes ======\n");
+	testStart();
+
+	//Début de la phase : référence
+	//Test d'extraction
+	extract(values, p_usSrcData, len_capteurs, len_pixels, 0);
+	printf("\n======= Test Extract Référence ======\n");
+	//testBasic();//test("extraction de l'échantillon", id_1);
+	//Test du calcul de médiane
+	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
+	printf("\n======= Test Mediane Référence ======\n");
+	//testBasic();//test("vecteur médiane de l'échantillon", id_1);
+	//Test du calcul de moyenne
+	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
+	printf("\n======= Test Moyenne Référence======\n");
+	//testBasic();//test("vecteur moyenne de l'échantillon", id_1);
+	//Test de mémorisation
+	mémorisation(Vref, Vmoyenne, len_pixels);
+	printf("\n======= Test Mémorisation Référence ======\n");
+	testBasic();//test("mémorisation du vecteur de référence", id_1);
+
+	//Début de la phase : all sample
+	//On parcourt tous les samples s
+	for (int c=0; c<len_samples; c++){
+		//On récupère le sample c
+		extract(values, p_usSrcData, len_capteurs, len_pixels, c);
+		printf("\n======= Test Extract sample n°%d ======\n", c+1);
+		testBasic();
+		//On en extrait le vecteur médiane
+		mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
+		printf("\n======= Test Mediane Référence n°%d ======\n", c+1);
+		testBasic();
+		//On en extrait le vecteur moyen
+		moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
+		printf("\n======= Test Moyenne Référence n°%d ======\n", c+1);
+		testBasic();
+		//On soustrait le vecteur de référence
+		soustraction(Vref, Vmoyenne, Vsoustrait, len_pixels);
+		printf("\n======= Test Soustraction n°%d ======\n", c+1);
+		testBasic();//test("soustraction des vecteurs", id_1);
+		//On compte les hotspots
+		nb_hotspots[c] = décompteHotspot(Vsoustrait, seuil, len_pixels);
+		printf("\n======= Test Hotspot sample n°%d ======\n", c+1);
+		testBasic();//test("décompte des hotspots", id_1);
+	}
+
+	//Test du traitement global
+	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
+	printf("\n======= Test Algo ======\n");
+	testBasic();//test("traitement global de tous les échantillons", id_1);
+
 	//fin de la phase de tests
 	printf("\n======= Test End Algorithme ======\n");
 	testEnd();
