@@ -11,6 +11,11 @@
 
 #include "algorithmes.h"
 
+bool flag_première_exécution = true;
+
+double Vref[uiSensorSize] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+int nb_hotspots[uiSimCount] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 void extract(unsigned short values[][uiSensorSize], unsigned short raw_data[][uiSensorCount][uiSensorSize], int len_capteurs, int len_pixels,  int id_sample){
 	for (int i=0; i<len_capteurs; i++){
@@ -84,36 +89,43 @@ void traitementGlobal(unsigned short raw_data[][uiSensorCount][uiSensorSize], in
 	unsigned short temp[len_capteurs] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	double Vmediane[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	double Vmoyenne[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	double Vref[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	double Vsoustrait[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	SortEngine engine;
 	engine.setSortType(SortEngine::QUICK);
 	////////////////////////////////////////////////////////////////////////////////////////
 
-	//INITIALISATION////////////////////////////////////////////////////////////////////////
-	//On récupère le sample de référence
-	extract(values, raw_data, len_capteurs, len_pixels, sample_ref);
-	//On en extrait le vecteur médiane
-	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
-	//On en extrait le vecteur moyen
-	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
-	//On en extrait le vecteur de référence
-	mémorisation(Vref, Vmoyenne, len_pixels);
-	////////////////////////////////////////////////////////////////////////////////////////
+	//FACTORISATION
 
-	//DECOMPTAGE HOTSPOT////////////////////////////////////////////////////////////////////
-	//On parcourt tous les samples s
-	for (int c=0; c<len_samples; c++){
-		//On récupère le sample c
-		extract(values, raw_data, len_capteurs, len_pixels, c);
+	//INITIALISATION////////////////////////////////////////////////////////////////////////
+	if (flag_première_exécution){
+		//On récupère le sample de référence
+		extract(values, raw_data, len_capteurs, len_pixels, sample_ref);
 		//On en extrait le vecteur médiane
 		mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 		//On en extrait le vecteur moyen
 		moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
-		//On soustrait le vecteur de référence
-		soustraction(Vref, Vmoyenne, Vsoustrait, len_pixels);
-		//On compte les hotspots
-		nb_hotspots[c] = décompteHotspot(Vsoustrait, seuil, len_pixels);
+		//On en extrait le vecteur de référence
+		mémorisation(Vref, Vmoyenne, len_pixels);
+		//On met à jour le flag
+		flag_première_exécution = false;
+	}
+	////////////////////////////////////////////////////////////////////////////////////////
+
+	//DECOMPTAGE HOTSPOT////////////////////////////////////////////////////////////////////
+	else{
+		//On parcourt tous les samples s
+		for (int c=0; c<len_samples; c++){
+			//On récupère le sample c
+			extract(values, raw_data, len_capteurs, len_pixels, c);
+			//On en extrait le vecteur médiane
+			mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
+			//On en extrait le vecteur moyen
+			moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
+			//On soustrait le vecteur de référence
+			soustraction(Vref, Vmoyenne, Vsoustrait, len_pixels);
+			//On compte les hotspots
+			nb_hotspots[c] = décompteHotspot(Vsoustrait, seuil, len_pixels);
+		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////

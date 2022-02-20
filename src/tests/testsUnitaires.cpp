@@ -277,7 +277,6 @@ int testUnitaireDécompte(){
 int testUnitaireTraitement(){
 	printf("\n==================== TEST UNITAIRE TRAITEMENT ====================\n");
 	int flag = 0;
-	int nb_hotspots[uiSimCount] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	int nb_hotspots_attendus[uiSimCount] = {
 			0, 9, 6, 9, 11,
 			9, 7, 7, 5, 7,
@@ -290,6 +289,9 @@ int testUnitaireTraitement(){
 			14, 10, 6, 8, 8,
 			11, 6, 14, 6, 7
 	};
+	//1er appel : initialisation
+	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
+	//2eme appel : calcul
 	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
 	float nb_correspondance = 0;
 	for (int c=0; c < (int)uiSimCount; c++){

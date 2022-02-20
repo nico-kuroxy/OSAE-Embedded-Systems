@@ -21,6 +21,9 @@
 #include  <stdlib.h>
 #include  <math.h>
 
+extern bool flag_première_exécution; /*!< Booléen permettant de vérifier si le service vient de démarrer ou non. */
+extern double Vref[uiSensorSize]; /*!< Vecteur dans lequel on va mémoriser les données de référence. */
+extern int nb_hotspots[uiSimCount]; /*!< Vecteur dans lequel on va mémoriser les nombres de hotspots détectés lors de la dernière analyse réalisée. */
 
 void extract(unsigned short values[][uiSensorSize], unsigned short raw_data[][uiSensorCount][uiSensorSize], int len_capteurs, int len_pixels,  int id_sample);
 /**
