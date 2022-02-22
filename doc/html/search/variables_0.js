@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flag_5fpremière_5fexécution',['flag_première_exécution',['../algorithmes_8cpp.html#a0223cf1be51dab77d19de11746230e90',1,'flag_première_exécution():&#160;algorithmes.cpp'],['../algorithmes_8h.html#a0223cf1be51dab77d19de11746230e90',1,'flag_première_exécution():&#160;algorithmes.cpp']]]
+  ['nb_5fhotspots',['nb_hotspots',['../algorithmes_8cpp.html#a7e812c67cba5a5997dee45c36d9869f5',1,'nb_hotspots():&#160;algorithmes.cpp'],['../algorithmes_8h.html#a7e812c67cba5a5997dee45c36d9869f5',1,'nb_hotspots():&#160;algorithmes.cpp']]]
 ];

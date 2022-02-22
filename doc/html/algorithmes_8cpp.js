@@ -7,7 +7,5 @@ var algorithmes_8cpp =
     [ "mémorisation", "algorithmes_8cpp.html#ae5d4891271ccc97460d75ee7baab2469", null ],
     [ "soustraction", "algorithmes_8cpp.html#a1f42e9ff4eb155ea2d71c870c6a660fa", null ],
     [ "traitementGlobal", "algorithmes_8cpp.html#aeaa7f0451a38f3dfc046a0cfc00fea25", null ],
-    [ "flag_première_exécution", "algorithmes_8cpp.html#a0223cf1be51dab77d19de11746230e90", null ],
-    [ "nb_hotspots", "algorithmes_8cpp.html#a7e812c67cba5a5997dee45c36d9869f5", null ],
-    [ "Vref", "algorithmes_8cpp.html#a9b09968d300bbc57ef4e8d1f70fa3093", null ]
+    [ "nb_hotspots", "algorithmes_8cpp.html#a7e812c67cba5a5997dee45c36d9869f5", null ]
 ];

@@ -28,7 +28,7 @@ int testBasic(){
 
 int testTriCPU(){
 
-	//INITIALISATION/////////////////////////////////////////////////////////////////////////
+	/*//INITIALISATION/////////////////////////////////////////////////////////////////////////
 	SortEngine *engine = new SortEngine();
 	unsigned short quick[uiSensorCount] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	unsigned short heap[uiSensorCount] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -39,8 +39,9 @@ int testTriCPU(){
 	////////////////////////////////////////////////////////////////////////////////////////
 	//Tests cpu des algo de tri : on va tester le tri de TOUTES nos données et en déduire le meilleur des deux.
 	printf("\n====== Test Start TRI Sample Complet ======\n");
-	testStart();
+	printf("\n======= Test Quick | Sample complet ======\n");
 	//Elaboration de la base de référence pour Quick
+	testStart();
 	for (int sample = 0; sample < (int)uiSimCount; sample++){
 		for (int colonne_pixel_k = 0; colonne_pixel_k<(int)uiSensorSize; colonne_pixel_k++){
 			for (int ligne_capteur = 0; ligne_capteur<(int)uiSensorCount; ligne_capteur++){
@@ -52,10 +53,10 @@ int testTriCPU(){
 			engine->sort(quick, uiSensorCount);
 		}
 	}
-	printf("\n======= Test Quick | Sample complet ======\n");
 	testBasic();
-
+	printf("\n======= Test Heap | Sample complet ======\n");
 	//Elaboration de la base de référence pour Heap
+	testStart();
 	for (int sample = 0; sample < (int)uiSimCount; sample++){
 		for (int colonne_pixel_k = 0; colonne_pixel_k<(int)uiSensorSize; colonne_pixel_k++){
 			for (int ligne_capteur = 0; ligne_capteur<(int)uiSensorCount; ligne_capteur++){
@@ -67,7 +68,6 @@ int testTriCPU(){
 			engine->sort(heap, uiSensorCount);
 		}
 	}
-	printf("\n======= Test Heap | Sample complet ======\n");
 	testBasic();
 	printf("\n======= Test End TRI Sample Complet ======\n");
 	testEnd();
@@ -90,16 +90,18 @@ int testTriCPU(){
 	}
 	//Début du test
 	printf("\n\n====== Test Start TRI SIMPLE CROISSANT ======\n");
-	testStart();
 	//Tests des tris;
-	engine->setSortType(SortEngine::QUICK);
-	engine->sort(quick, uiSensorCount);
 	printf("\n======= Test Quick | Tri Simple Croissant ======\n");
+	engine->setSortType(SortEngine::QUICK);
+	testStart();
+	engine->sort(quick, uiSensorCount);
 	testBasic();
-	engine->setSortType(SortEngine::HEAP);
-	engine->sort(heap, uiSensorCount);
 	printf("\n======= Test Heap | Tri Simple Croissant ======\n");
+	engine->setSortType(SortEngine::HEAP);
+	testStart();
+	engine->sort(heap, uiSensorCount);
 	testBasic();
+
 	//Affichage des listes triées
 	printf("\nListe quick triée : \n");
 	for (int i=0; i<(int)uiSensorCount; i++){
@@ -131,15 +133,16 @@ int testTriCPU(){
 	}
 	//Début du test
 	printf("\n\n====== Test Start TRI SIMPLE DéCROISSANT ======\n");
-	testStart();
 	//Tests des tris;
-	engine->setSortType(SortEngine::QUICK);
-	engine->sort(quick, uiSensorCount);
 	printf("\n======= Test Quick | Tri Simple DéCroissant ======\n");
+	engine->setSortType(SortEngine::QUICK);
+	testStart();
+	engine->sort(quick, uiSensorCount);
 	testBasic();
-	engine->setSortType(SortEngine::HEAP);
-	engine->sort(heap, uiSensorCount);
 	printf("\n======= Test Heap | Tri Simple DéCroissant ======\n");
+	engine->setSortType(SortEngine::HEAP);
+	testStart();
+	engine->sort(heap, uiSensorCount);
 	testBasic();
 	//Affichage des listes triées
 	printf("\nListe quick décroissant triée : \n");
@@ -172,15 +175,16 @@ int testTriCPU(){
 	}
 	//Début du test
 	printf("\n\n====== Test Start TRI SIMPLE IDENTIQUE ======\n");
-	testStart();
 	//Tests des tris;
-	engine->setSortType(SortEngine::QUICK);
-	engine->sort(quick, uiSensorCount);
 	printf("\n======= Test Quick | Tri Simple Identique ======\n");
+	engine->setSortType(SortEngine::QUICK);
+	testStart();
+	engine->sort(quick, uiSensorCount);
 	testBasic();
-	engine->setSortType(SortEngine::HEAP);
-	engine->sort(heap, uiSensorCount);
 	printf("\n======= Test Heap | Tri Simple Identique ======\n");
+	engine->setSortType(SortEngine::HEAP);
+	testStart();
+	engine->sort(heap, uiSensorCount);
 	testBasic();
 	//Affichage des listes triées
 	printf("\nListe quick same triée : \n");
@@ -220,15 +224,16 @@ int testTriCPU(){
 	}
 	//Début du test
 	printf("\n\n====== Test Start TRI SERIE DéCROISSANTE ======\n");
-	testStart();
 	//Tests des tris;
-	engine->setSortType(SortEngine::QUICK);
-	engine->sort(quick, uiSensorCount);
 	printf("\n======= Test Quick | Tri série décroissante ======\n");
+	engine->setSortType(SortEngine::QUICK);
+	testStart();
+	engine->sort(quick, uiSensorCount);
 	testBasic();
-	engine->setSortType(SortEngine::HEAP);
-	engine->sort(heap, uiSensorCount);
 	printf("\n======= Test Heap | Tri série décroissante ======\n");
+	engine->setSortType(SortEngine::HEAP);
+	testStart();
+	engine->sort(heap, uiSensorCount);
 	testBasic();
 	//Affichage des listes triées
 	printf("\nListe quick série décroissante triée : \n");
@@ -249,7 +254,7 @@ int testTriCPU(){
 	testEnd();
 	delete engine;
 	/////////////////////////////////////////////////////////////////////////////////////////
-
+	*/
 	return 0;
 }
 
@@ -268,63 +273,73 @@ int testAlgoCPU(){
 	double Vsoustrait[len_pixels] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	SortEngine engine;
 	engine.setSortType(SortEngine::QUICK);
-	flag_première_exécution = true;
+	double Vref[uiSensorSize] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	//début de la phase de tests
 	printf("\n====== Test Start Algorithmes ======\n");
-	testStart();
 
 	//Début de la phase : référence
 	//Test d'extraction
-	extract(values, p_usSrcData, len_capteurs, len_pixels, 0);
 	printf("\n======= Test Extract Référence ======\n");
-	//testBasic();//test("extraction de l'échantillon", id_1);
+	testStart();
+	extract(values, p_usSrcData, len_capteurs, len_pixels, 0);
+	testBasic();//test("extraction de l'échantillon", id_1);
 	//Test du calcul de médiane
-	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 	printf("\n======= Test Mediane Référence ======\n");
-	//testBasic();//test("vecteur médiane de l'échantillon", id_1);
+	testStart();
+	mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
+	testBasic();//test("vecteur médiane de l'échantillon", id_1);
 	//Test du calcul de moyenne
-	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
 	printf("\n======= Test Moyenne Référence======\n");
-	//testBasic();//test("vecteur moyenne de l'échantillon", id_1);
+	testStart();
+	moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
+	testBasic();//test("vecteur moyenne de l'échantillon", id_1);
 	//Test de mémorisation
-	mémorisation(Vref, Vmoyenne, len_pixels);
 	printf("\n======= Test Mémorisation Référence ======\n");
+	testStart();
+	mémorisation(Vref, Vmoyenne, len_pixels);
 	testBasic();//test("mémorisation du vecteur de référence", id_1);
 
 	//Début de la phase : all sample
 	//On parcourt tous les samples s
-	for (int c=0; c<25; c++){
+	for (int c=0; c<20; c++){
 		//On récupère le sample c
-		extract(values, p_usSrcData, len_capteurs, len_pixels, c);
 		printf("\n======= Test Extract n°%d ======\n", c+1);
+		testStart();
+		extract(values, p_usSrcData, len_capteurs, len_pixels, c);
 		testBasic();
 		//On en extrait le vecteur médiane
-		mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 		printf("\n======= Test Mediane n°%d ======\n", c+1);
+		testStart();
+		mediane(engine, values, temp, Vmediane, len_capteurs, len_pixels);
 		testBasic();
 		//On en extrait le vecteur moyen
-		moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
 		printf("\n======= Test Moyenne n°%d ======\n", c+1);
+		testStart();
+		moyenne(values, Vmediane, Vmoyenne, len_capteurs, len_pixels, erreur);
 		testBasic();
 		//On soustrait le vecteur de référence
-		soustraction(Vref, Vmoyenne, Vsoustrait, len_pixels);
 		printf("\n======= Test Soustraction n°%d ======\n", c+1);
+		testStart();
+		soustraction(Vref, Vmoyenne, Vsoustrait, len_pixels);
 		testBasic();//test("soustraction des vecteurs", id_1);
 		//On compte les hotspots
-		nb_hotspots[c] = décompteHotspot(Vsoustrait, seuil, len_pixels);
 		printf("\n======= Test Hotspot n°%d ======\n", c+1);
+		testStart();
+		nb_hotspots[c] = décompteHotspot(Vsoustrait, seuil, len_pixels);
 		testBasic();//test("décompte des hotspots", id_1);
 	}
 
 	//Test du traitement global : initialisation
-	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
 	printf("\n======= Test Algo Init ======\n");
-	//testBasic();//test("traitement global de tous les échantillons", id_1);
-	//Test du traitement global : lecture des données
+	testStart();
 	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
+	testBasic();//test("traitement global de tous les échantillons", id_1);
+	//Test du traitement global : lecture des données
 	printf("\n======= Test Algo Lecture ======\n");
-	//testBasic();//test("traitement global de tous les échantillons", id_1);
+	testStart();
+	traitementGlobal(p_usSrcData, nb_hotspots, uiSimCount, uiSensorCount, uiSensorSize, 0, usHotspotDetectionThreshold, usGrantedError);
+	testBasic();//test("traitement global de tous les échantillons", id_1);
 
 
 	//fin de la phase de tests

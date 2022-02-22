@@ -107,10 +107,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a0069f2dd3b3d9f38a7d71089771c8557"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a0069f2dd3b3d9f38a7d71089771c8557">moyenne</a> (unsigned short values[][uiSensorSize], double *<a class="el" href="algorithmes_8h.html#a29c4641c2fadab35605825455e9958db">mediane</a>, double *moyenne, int len_capteurs, int len_pixels, int erreur)</td></tr>
 <tr class="memdesc:a0069f2dd3b3d9f38a7d71089771c8557"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va remplir un vecteur contenant à chaque case k la valeur moyenne de tous les k-ièmes pixels de chaque capteurs en excluant les valeurs aberrantes.  <a href="#a0069f2dd3b3d9f38a7d71089771c8557">More...</a><br /></td></tr>
 <tr class="separator:a0069f2dd3b3d9f38a7d71089771c8557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5d4891271ccc97460d75ee7baab2469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#ae5d4891271ccc97460d75ee7baab2469">mémorisation</a> (double *<a class="el" href="algorithmes_8h.html#a9b09968d300bbc57ef4e8d1f70fa3093">Vref</a>, double *Vmu, int len_pixels)</td></tr>
+<tr class="memitem:ae5d4891271ccc97460d75ee7baab2469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#ae5d4891271ccc97460d75ee7baab2469">mémorisation</a> (double *Vref, double *Vmu, int len_pixels)</td></tr>
 <tr class="memdesc:ae5d4891271ccc97460d75ee7baab2469"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va copier le vecteur Vmu dans le vecteur Vref. Cette fonction est utilisée pour mémoriser le vecteur de référence.  <a href="#ae5d4891271ccc97460d75ee7baab2469">More...</a><br /></td></tr>
 <tr class="separator:ae5d4891271ccc97460d75ee7baab2469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f42e9ff4eb155ea2d71c870c6a660fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a1f42e9ff4eb155ea2d71c870c6a660fa">soustraction</a> (double *<a class="el" href="algorithmes_8h.html#a9b09968d300bbc57ef4e8d1f70fa3093">Vref</a>, double *Vmu, double *Vs, int len_pixels)</td></tr>
+<tr class="memitem:a1f42e9ff4eb155ea2d71c870c6a660fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a1f42e9ff4eb155ea2d71c870c6a660fa">soustraction</a> (double *Vref, double *Vmu, double *Vs, int len_pixels)</td></tr>
 <tr class="memdesc:a1f42e9ff4eb155ea2d71c870c6a660fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va soustraire au vecteur moyen considéré Vmu le vecteur de référence Vref. Le vecteur résultant est stocké dans Vs.  <a href="#a1f42e9ff4eb155ea2d71c870c6a660fa">More...</a><br /></td></tr>
 <tr class="separator:a1f42e9ff4eb155ea2d71c870c6a660fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29059d47cda836c6c7e0f1bdf35d3468"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a29059d47cda836c6c7e0f1bdf35d3468">décompteHotspot</a> (double *Vs, double seuil, int len_pixels)</td></tr>
@@ -122,10 +122,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a0223cf1be51dab77d19de11746230e90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a0223cf1be51dab77d19de11746230e90">flag_première_exécution</a> = true</td></tr>
-<tr class="separator:a0223cf1be51dab77d19de11746230e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b09968d300bbc57ef4e8d1f70fa3093"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a9b09968d300bbc57ef4e8d1f70fa3093">Vref</a> [uiSensorSize] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</td></tr>
-<tr class="separator:a9b09968d300bbc57ef4e8d1f70fa3093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e812c67cba5a5997dee45c36d9869f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algorithmes_8cpp.html#a7e812c67cba5a5997dee45c36d9869f5">nb_hotspots</a> [uiSimCount] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</td></tr>
 <tr class="separator:a7e812c67cba5a5997dee45c36d9869f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -181,7 +177,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int contenant le nombre de hotspots détectés. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00074">74</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00070">70</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
@@ -242,7 +238,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rien, on va modifier le tableau "values" initialisé en dehors de la fonction pour y stocker les données extraites. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00020">20</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00016">16</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
@@ -310,7 +306,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rien, on va modifier le tableau "mediane" initialisé en dehors de la fonction pour y stocker les valeurs des médianes. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00028">28</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00024">24</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
@@ -378,7 +374,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rien, on va modifier le tableau "moyenne" initialisé en dehors de la fonction pour y stocker les valeurs des moyennes. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00043">43</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00039">39</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,7 +421,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rien, on va modifier le tableau "Vref" initialisé en dehors de la fonction pour y copier le vecteur de référence. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00062">62</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00058">58</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +475,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rien, on va modifier le tableau "Vs" initialisé en dehors de la fonction pour y stocker les valeurs des données soustraites. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00067">67</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00063">63</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
@@ -561,28 +557,11 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rien, on va afficher le nombre de hotspots détectés pour chaque sample. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00084">84</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00080">80</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a0223cf1be51dab77d19de11746230e90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0223cf1be51dab77d19de11746230e90">&#9670;&nbsp;</a></span>flag_première_exécution</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool flag_première_exécution = true</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Booléen permettant de vérifier si le service vient de démarrer ou non. </p>
-
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00014">14</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
-
-</div>
-</div>
 <a id="a7e812c67cba5a5997dee45c36d9869f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e812c67cba5a5997dee45c36d9869f5">&#9670;&nbsp;</a></span>nb_hotspots</h2>
 
@@ -596,24 +575,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Vecteur dans lequel on va mémoriser les nombres de hotspots détectés lors de la dernière analyse réalisée. </p>
 
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00018">18</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a9b09968d300bbc57ef4e8d1f70fa3093"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b09968d300bbc57ef4e8d1f70fa3093">&#9670;&nbsp;</a></span>Vref</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Vref[uiSensorSize] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Vecteur dans lequel on va mémoriser les données de référence. </p>
-
-<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00016">16</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="algorithmes_8cpp_source.html#l00014">14</a> of file <a class="el" href="algorithmes_8cpp_source.html">algorithmes.cpp</a>.</p>
 
 </div>
 </div>
