@@ -23,15 +23,15 @@ La présente documentation a pour objectif de référencer les algorithmes que n
 
 ## Auteurs : 
 
-Nicolas Erbetti
-Hugo Destannes Froment
+- Nicolas Erbetti
+- Hugo Destannes Froment
 
 ***
 
 ## Encadrants : 
 
-Philippe Plasson
-LeeRoy Malac-Allain
+- Philippe Plasson.
+- LeeRoy Malac-Allain.
 
 ***
 
