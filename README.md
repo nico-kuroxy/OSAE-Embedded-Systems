@@ -1,21 +1,12 @@
 # OSAE-Embedded-Systems
 
+Dans le cadre d'une étude de phase A d'un instrument spatial, on désire effectuer une étude de faisabilité et un dimensionnement de la partie numérique de cet instrument. L'instrument est constitué d'un ensemble de 50 capteurs linéaires (une colonne) de 100 pixels. Chaque capteur est associé à une électronique de proximité effectuant entre autre une conversion analogique/numérique sur 16 bits et un transfert des résultats vers une RAM accessible par un DPU. Le transfert est effectué au travers d'un lien SpaceWire via le protocole RMAP. On considérera que le lien offre un débit de 50Mbits.s-1.
+
+Ce répertoire git a pour objectif de gérer le versioning des algorithmes que nous avons développés qui visent à traiter les données acquises et transférées telles que décrites dans le paragraphe précédent. Le traitement effectué permet de déterminer le nombre de hotspots ou "points chauds" présent dans un jeu d'images en comparaison à une image de référence.
+
+
 Lien du google sheet regroupant les différents bilans :
 [ICI](https://docs.google.com/spreadsheets/d/11fl3j0zelHn65aaViv8vkDIVxnM8E7WRTuLo4zvRjCg/edit?usp=sharing)
 
-#TO DO : 
-- [x] Evaluer les perf CPU des tris (concevoir un protocole avec multiples tests cpu)
-- [x] Valider les résultats des algos (tests unitaires)
-- [x] Evaluer les perf CPU des algos (tests cpu)
-- [x] Faire un bilan de la charge CPU (tableau excel)
-- [x] Optimiser le code
-- [ ] Proposition d'architecture
-- [ ] Estimation du débit
-- [ ] Rapport
-- [x] ReadMe Documentation
-- [x] Explication des deux différences par rapport à la théorie
-- [x] Demander ce qu'ils attendent lorsqu'ils disent qu'ils veulent les "résultats" parmis les livrables... Les excels des bilans cpu ?
-- [x] Demander des règles d'interface... sous quelles formes arrivent les données qu'on donne à notre fonction extract -> pour savoir au niveau du bilan CPU combien de temps on a à notre disposition + si ce temps s'applique pour un sample ou pour tous les samples.
-- [x] Documentation code des tests
 
 
